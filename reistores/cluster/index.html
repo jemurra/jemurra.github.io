@@ -30,7 +30,7 @@
 		
 		var geoJsonLayer = L.geoJson(reist, {
 			onEachFeature: function (feature, layer) {
-				layer.bindPopup(feature.properties.StoreName);
+				layer.bindPopup("<a href='"+feature.properties.HLink+"' target='_blank'>"+feature.properties.StoreName+"</a>");
 			}
 		});
 		markers.addLayer(geoJsonLayer);
