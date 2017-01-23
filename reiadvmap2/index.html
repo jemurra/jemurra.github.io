@@ -45,7 +45,9 @@
         layer.bindPopup(pContent);
     }
 
-    var markers = L.markerClusterGroup();
+    var markers = L.markerClusterGroup({
+        showCoverageOnHover: false
+    });
 
     var advts = L.geoJson(rtrips,{
         pointToLayer: function (feature, latlng) {
