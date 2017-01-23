@@ -23,7 +23,7 @@
 <div id="mapyo"></div>
 </body>
 <script>
-    var mymap = L.map('mapyo').setView([20.5, -20.65], 2);
+    var mymap = L.map('mapyo');
     var osmbase = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     });
 
@@ -60,6 +60,7 @@
     });
 
     markers.addLayer(advts).addTo(mymap);
+    mymap.fitBounds(markers.getBounds());
 
     var baseLayers = {
         "OSM Basemap": osmbase,
