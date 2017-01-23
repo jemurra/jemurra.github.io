@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>REI Adventures Map</title>
+
+    <link rel="stylesheet" href="leaflet.css" />
+    <link rel="stylesheet" href="style.css"/>
+    <script type="text/javascript" src="leaflet.js"></script>
+    <!--script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script-->
+    <link rel="stylesheet" href="MarkerCluster.css" />
+    <link rel="stylesheet" href="MarkerCluster.Default.css" />
+    <script src="leaflet.markercluster.js"></script>
+
+    <script type="text/javascript" src="trafx.js"></script>
+
+</head>
+<body>
+<a href="https://www.rei.com/adventures" target="_blank">
+<img src="images/reilogo" alt="REI Logo" style="width:100%;">
+<!--REI Adventure locations-->
+</a>
+<div id="mapyo"></div>
+</body>
+<script>
+    var mymap = L.map('mapyo').setView([20.5, -20.65], 2);
+    var osmbase = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    });
+
+    var Esri_NatGeoWorldMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+    maxZoom: 16
+    }).addTo(mymap);
+
+    var CartoDB_DarkMatter = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+    });
+
+    function openPopup(feature, layer){
+        var alink = feature.properties.HLINK;
+        var aname = feature.properties.NAME;
+        var pContent = "<b>"+aname+"</b>"+"<br>"+"<a href='"+alink+"' target='_blank'>"+"More Info"+"</a>";
+        layer.bindPopup(pContent);
+    }
+
+    var markers = L.markerClusterGroup();
+
+    var advts = L.geoJson(rtrips,{
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.8
+            });
+        }
+        ,onEachFeature: openPopup
+    });
+
+    markers.addLayer(advts).addTo(mymap);
+
+    var baseLayers = {
+        "OSM Basemap": osmbase,
+        "ESRI NGO": Esri_NatGeoWorldMap,
+        "Dark": CartoDB_DarkMatter
+
+    };
+
+    L.control.layers(baseLayers).addTo(mymap);
+
+</script>
+
+</html>
