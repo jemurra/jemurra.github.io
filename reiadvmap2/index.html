@@ -40,7 +40,7 @@
 
     function openPopup(feature, layer){
         var alink = feature.properties.HLINK;
-        var aname = feature.properties.NAME;
+        var aname = feature.properties.Name;
         var pContent = "<b>"+aname+"</b>"+"<br>"+"<a href='"+alink+"' target='_blank'>"+"More Info"+"</a>";
         layer.bindPopup(pContent);
     }
