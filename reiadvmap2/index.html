@@ -41,7 +41,9 @@
     function openPopup(feature, layer){
         var alink = feature.properties.HLINK;
         var aname = feature.properties.Name;
-        var pContent = "<b>"+aname+"</b>"+"<br>"+"<a href='"+alink+"' target='_blank'>"+"More Info"+"</a>";
+        var pz = feature.properties.PRICE;
+        var dz = feature.properties.DAZS;
+        var pContent = "<b>"+aname+"</b>"+"<br>"+"<b>"+"Cost* "+"</b>"+pz+"<b>"+"Days: "+"</b>"+dz+"<a href='"+alink+"' target='_blank'>"+"More Info"+"</a>";
         layer.bindPopup(pContent);
     }
 
