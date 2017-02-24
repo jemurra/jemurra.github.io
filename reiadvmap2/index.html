@@ -63,7 +63,7 @@
 
     markers.addLayer(advts).addTo(mymap);
     mymap.fitBounds(markers.getBounds());
-    //mymap.maxBounds(advts.getBounds());
+    mymap.setMaxBounds(advts.getBounds());
 
     var baseLayers = {
         "OSM Basemap": osmbase,
