@@ -63,9 +63,10 @@
 
     markers.addLayer(advts).addTo(mymap);
     mymap.fitBounds(markers.getBounds());
-    mymap.setMaxBounds(advts.getBounds());
-    //mymap.setMaxBounds(advts.getBounds(), {padding: [100, 100]});
-    //alert(mymap.getBounds());
+    //mymap.setMaxBounds(advts.getBounds());
+    mymap.setMaxBounds([
+    	[82.05805, 200.28125],[-82.29793, -175.67188]
+    ]);
     mymap.options.minZoom = mymap.getZoom();
 
     var baseLayers = {
