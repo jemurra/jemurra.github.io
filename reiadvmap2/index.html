@@ -50,6 +50,7 @@
     var markers = L.markerClusterGroup({
         showCoverageOnHover: false
         ,disableClusteringAtZoom: 6
+        ,maxClusterRadius: 70
     });
 
     var advts = L.geoJson(rtrips,{
