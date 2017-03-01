@@ -48,7 +48,8 @@
     }
 
     var markers = L.markerClusterGroup({
-        showCoverageOnHover: false
+        showCoverageOnHover: false,
+        disableClusteringAtZoom: 6
     });
 
     var advts = L.geoJson(rtrips,{
