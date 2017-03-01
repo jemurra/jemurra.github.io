@@ -64,6 +64,7 @@
     markers.addLayer(advts).addTo(mymap);
     mymap.fitBounds(markers.getBounds());
     mymap.setMaxBounds(advts.getBounds());
+    mymap.options.minZoom = mymap.getZoom();
 
     var baseLayers = {
         "OSM Basemap": osmbase,
