@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Heatmap</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <nav class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container-fluid"><div class="navtext">BETA Choropleth Map - Number of Members by Zip Code</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div id="mytravelpage">
+      <div id="toc" class="collapse collapse in">
+        <div><span class="glyphicon glyphicon-triangle-top tocimg"></span></div>
+        <div id="lyrs">
+          <h3>Map Layers</h3>
+          <form>
+          <div class="checkbox">
+            <label><input id="nps" type="checkbox" checked="checked" value="">Stores
+              <a data-toggle="tooltip" data-original-title="Stores as of Q3 2016"><img class="infoimg" src="img/info.png"></a>
+            </label>
+          </div>
+          <div class="checkbox">
+            <label><input id="advs" type="checkbox" value="">Adventures/Travels
+              <a data-toggle="tooltip" data-original-title="Adventures as of Q3 2016"><img class="infoimg" src="img/info.png"></a>
+            </label>
+          </div>
+          <br>
+          <h4>Basemap</h4>
+          <div class="radio">
+            <label><input id="osmbase" class="leaflet-control-layers-selector" type="radio" name="leaflet-base-layers">OSM Simple</label>
+          </div>
+          <div class="radio">
+            <label><input id="cdb_dark" class="leaflet-control-layers-selector" checked="checked" type="radio" name="leaflet-base-layers">Members
+              <a data-toggle="tooltip" data-original-title="Members by Zip Code as of Q1 2017"><img class="infoimg" src="img/info.png"></a>
+            </label>
+          </div>
+          <div id ="myLegend" class='my-legend'>
+            <div class='legend-title'>Members by Zip Code*</div>
+            <div class='legend-scale'>
+              <ul class='legend-labels'>
+                <li><span style='background:#1a9641;'></span>>0</li>
+                <li><span style='background:#5def50;'></span>>=200</li>
+                <li><span style='background:#80c75f;'></span>>=500</li>
+                <li><span style='background:#aedd72;'></span>>=1000</li>
+                <li><span style='background:#cfeb91;'></span>>=1500</li>
+                <li><span style='background:#eff9b1;'></span>>=2500</li>
+                <li><span style='background:#fff1af;'></span>>=3500</li>
+                <li><span style='background:#fed38c;'></span>>=5000</li>
+                <li><span style='background:#feb66a;'></span>>=6000</li>
+                <li><span style='background:#f3854e;'></span>>=7500</li>
+                <li><span style='background:#e54f35;'></span>>=10500</li>
+                <li><span style='background:#d7191c;'></span>>=18000</li>
+              </ul>
+            </div>
+            <div class='legend-source'>*Data displayed by natural breaks. Display does not include PO Box zips</div>
+          </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="mymap"></div>
+      <br>
+      <div id="btnclp">
+          <button type="button" class="btn btn-info mybtn" data-toggle="collapse" data-target="#toc"><span class="glyphicon glyphicon-remove"></span></button>
+      </div>
+    </div>
+
+  <script type="text/javascript" src="ftrs/adv.js"></script>
+  <script type="text/javascript" src="ftrs/rstrs.js"></script>
+
+  <script type="text/javascript">
+
+    var tmap = L.map('mymap', {}).setView([52.6, -119.2], 3);
+    var osmbase = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      });
+    tmap.options.minZoom=3;
+    tmap.options.maxZoom=12;
+    //tmap.setMaxBounds([
+        //[82.05805, 200.28125],[-82.29793, -175.67188]
+      //]);
+
+    var cdb_dark2 = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+    subdomains: 'abcd',
+    maxZoom: 19
+    });
+
+    var cdb_dark = L.tileLayer('https://api.mapbox.com/styles/v1/granolaboy21/cj4q2yypdbskg2smonsv2khcz/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ3Jhbm9sYWJveTIxIiwiYSI6IkZyeklRdGcifQ.0yEF3ekhaCnujw-OQgkusw', {
+    }).addTo(tmap);
+
+    var pi = L.icon({
+      iconUrl: 'img/advts.png'
+      ,iconSize: [30,37]
+    });
+
+    var xi = L.icon({
+      iconUrl: 'img/strs.png'
+      ,iconSize: [30,37]
+    });
+
+    var nps = L.geoJson(strs,{
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.8,
+                icon: xi
+            });
+        }
+        ,onEachFeature: openPopup
+    });
+
+    var advs = L.geoJson(rtrips,{
+        pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {
+                opacity: 1,
+                fillOpacity: 0.8,
+                icon: pi
+            });
+        }
+        ,onEachFeature: openPopup
+    });
+
+
+
+    function openPopup(feature, layer){
+        var nm = feature.properties.NAME;
+        var hyl = feature.properties.HLINK;
+        var pContent = "<b>"+nm+"</b>"+"<br>"+"<a href='"+hyl+"' target='_blank'>"+"More Info"+"</a>";
+        layer.bindPopup(pContent);
+    }
+
+    nps.addTo(tmap);
+
+
+    tmap.zoomControl.setPosition('topright');
+
+      $(function(){
+        $(':checkbox').on("change", function(){
+          if (this.checked){
+            tmap.addLayer(window[$(this).attr('id')]);
+          }
+          else{
+            tmap.removeLayer(window[$(this).attr('id')]);
+          }
+        });
+      });
+
+      $(function(){
+        $(':radio').on("change", function(){
+          var new_base = $(this).attr('id');
+          if (new_base == 'osmbase'){
+            tmap.addLayer(osmbase);
+            tmap.removeLayer(cdb_dark);
+            $("#myLegend").toggle();
+          }
+          else{
+            tmap.addLayer(cdb_dark);
+            tmap.removeLayer(osmbase); 
+            $("#myLegend").toggle();
+          }
+        });
+      });
+
+      $('a').tooltip({
+        placement: 'right'
+      });
+
+      $('#btnclp').click(function(){
+        $(this).find('span').toggleClass("glyphicon-remove glyphicon-menu-hamburger");
+      });
+
+  </script>
+  </div>
+
+</body>
+</html>
+
