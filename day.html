@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Get Day</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+	.mybutton {
+	    background-color: #9413BF;
+	    border: none;
+	    color: white;
+	    padding: 5px 3px;
+	    text-align: center;
+	    text-decoration: none;
+	    display: inline-block;
+	    font-size: 16px;
+	    margin: 4px 2px;
+	    cursor: pointer;
+	}
+	</style>
+</head>
+<body style="background-color: black;" onload="refreshDay();">
+
+  <div id="currentDay" style="text-align: center; color: white">
+  Why hello my love.
+  <br><br>
+  <button onclick="refreshDay();" class="mybutton">Refresh</button>
+  <br><br>
+  <div id="dtitle" style="font-size: 40px;""></div>
+  <div id="nowd" style="font-size: 100px;"></div>
+  <div id="currentdate" style="font-size: 60px;"></div>
+  </div>
+
+  <script type="text/javascript">
+
+  function refreshDay(){
+    var startd = new Date("7/8/2017");
+    var endd = new Date("7/7/2018");
+    //var endd  = new Date(startd*1 + 364*24*3600*1000);
+    var startdm = (startd.getMonth()+1) + "/" + startd.getDate() + "/" + startd.getFullYear();
+    var enddm = (endd.getMonth()+1) + "/" + endd.getDate() + "/" + endd.getFullYear();
+
+    function getDates( d1, d2 ){
+      var oneDay = 24*3600*1000;
+      for (var d=[],ms=d1*1,last=d2*1;ms<last;ms+=oneDay){
+        var dnum = 0;
+        d.push( new Date(ms) );
+      }
+
+      var arrayD = d.length;
+      for (var i = 0; i < arrayD; i++){
+        var nowDate = new Date();
+        var nd = (nowDate.getMonth()+1) + "/" + nowDate.getDate() + "/" + nowDate.getFullYear();
+        var cd = (d[i].getMonth()+1) + "/" + d[i].getDate() + "/" + d[i].getFullYear();
+        if (cd == nd){
+        	document.getElementById('dtitle').innerHTML = "Today is Day: ";
+          document.getElementById('currentdate').innerHTML =  cd;
+          document.getElementById('nowd').innerHTML = d.indexOf(d[i])+1;
+        }
+        //console.log(d[i]);
+      }
+      return d;      
+    }
+
+    getDates( startd, endd ).join("\n");
+  }
+  </script>
+  </div>
+
+</body>
+</html>
+
