@@ -36,7 +36,6 @@
   function refreshDay(){
     var startd = new Date("7/8/2017");
     var endd = new Date("7/7/2018");
-    //var endd  = new Date(startd*1 + 364*24*3600*1000);
     var startdm = (startd.getMonth()+1) + "/" + startd.getDate() + "/" + startd.getFullYear();
     var enddm = (endd.getMonth()+1) + "/" + endd.getDate() + "/" + endd.getFullYear();
 
@@ -57,7 +56,6 @@
           document.getElementById('currentdate').innerHTML =  cd;
           document.getElementById('nowd').innerHTML = d.indexOf(d[i])+1;
         }
-        //console.log(d[i]);
       }
       return d;      
     }
