@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expert Advice Article Search</title>
+  <link rel="stylesheet" href="js/jquery-ui.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script>
+  $( function() {
+
+    $( "#search" ).autocomplete({
+      source: exas,
+      appendTo: "#results",
+      select: function (event, b) {$.getJSON( "js/articles.json", function( data ) {
+		  for(val in data){
+			  if (b.item.value === data[val].properties.Advice){
+				  window.location.href = "https://www."+data[val].properties.Link
+			};
+		}
+		});
+  	}
+    });
+
+  } );
+
+  var exas = [];
+  function logJSON(){$.getJSON( "js/articles.json", function( data ) {
+		for(val in data){
+			exas.push(data[val].properties.Advice);
+		}
+		});
+  }
+
+  </script>
+</head>
+<body onload="logJSON();">
+ 
+ <br><br>
+<div class="title">Search Expert Advice Articles</div>
+<h3>Over 450 Expert Advice Articles</h3>
+
+<form class="form-wrapper">
+    <input type="text" id="search" placeholder="Search for...">
+</form>
+
+<div class="searchResults" id="results"></div>
+</body>
+</html>
