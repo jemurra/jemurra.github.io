@@ -454,7 +454,7 @@
 { "type": "Feature", "properties": { "Advice": "Water Bottle and Reservoir Care", "Link": "rei.com\\learn\\expert-advice\\cleaning-water-bottles.html", "Type": "Gear Care & Repair" } },
 { "type": "Feature", "properties": { "Advice": "Water Treatment for International Travel", "Link": "rei.com\\learn\\expert-advice\\water-treatment-international.html", "Type": "How to Choose" } },
 { "type": "Feature", "properties": { "Advice": "Weather Basics for Backpackers", "Link": "rei.com\\learn\\expert-advice\\weather-basics.html", "Type": "Skills & Knowledge" } },
-{ "type": "Feature", "properties": { "Advice": "What is bluesign�?", "Link": "rei.com\\learn\\expert-advice\\bluesign.html", "Type": "How to Choose" } },
+{ "type": "Feature", "properties": { "Advice": "What is bluesign?", "Link": "rei.com\\learn\\expert-advice\\bluesign.html", "Type": "How to Choose" } },
 { "type": "Feature", "properties": { "Advice": "What is Organically Grown Cotton?", "Link": "rei.com\\learn\\expert-advice\\organically-grown-cotton.html", "Type": "How to Choose" } },
 { "type": "Feature", "properties": { "Advice": "What to Wear Kayaking", "Link": "rei.com\\learn\\expert-advice\\kayaking-what-to-wear.html", "Type": "Skills & Knowledge" } },
 { "type": "Feature", "properties": { "Advice": "When to Replace Your Running Shoes", "Link": "rei.com\\learn\\expert-advice\\replace-shoes.html", "Type": "Skills & Knowledge" } },
@@ -467,5 +467,6 @@
 { "type": "Feature", "properties": { "Advice": "Yoga Gear: How to Choose ", "Link": "rei.com\\learn\\expert-advice\\yoga-gear.html", "Type": "How to Choose" } },
 { "type": "Feature", "properties": { "Advice": "Yoga: How to Get Started", "Link": "rei.com\\learn\\expert-advice\\getting-into-yoga.html", "Type": "Skills & Knowledge" } },
 { "type": "Feature", "properties": { "Advice": "Yosemite National Park Visitor Guide", "Link": "rei.com\\learn\\expert-advice\\yosemite-national-park-visitor-guide.html", "Type": "Skills & Knowledge" } },
-{ "type": "Feature", "properties": { "Advice": "Zion National Park Visitor Guide", "Link": "rei.com\\learn\\expert-advice\\zion-np-guide.html", "Type": "Skills & Knowledge" } }
+{ "type": "Feature", "properties": { "Advice": "Zion National Park Visitor Guide", "Link": "rei.com\\learn\\expert-advice\\zion-np-guide.html", "Type": "Skills & Knowledge" } },
+{ "type": "Feature", "properties": { "Advice": "How to Find Bigfoot", "Link": "", "Type": "Skills & Knowledge" } }
 ]
