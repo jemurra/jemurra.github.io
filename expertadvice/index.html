@@ -27,7 +27,7 @@
   } );
 
   var exas = [];
-  function logJSON(){$.getJSON( "js/articles.json", function( data ) {
+  function logJSON(){$.getJSON( "articles.json", function( data ) {
 		for(val in data){
 			exas.push(data[val].properties.Advice);
 		}
