@@ -54,7 +54,8 @@
         if (cd == nd){
         	document.getElementById('dtitle').innerHTML = "Today is Day: ";
           document.getElementById('currentdate').innerHTML =  cd;
-          document.getElementById('nowd').innerHTML = d.indexOf(d[i])+1;
+          //document.getElementById('nowd').innerHTML = d.indexOf(d[i])+1;
+	  document.getElementById('nowd').innerHTML = d.indexOf(d[i]);
         }
       }
       return d;      
