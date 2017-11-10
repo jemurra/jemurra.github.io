@@ -38,6 +38,8 @@ Source: <a href="http://teamsites.rei.com/sites/DS-Product-Support/Lists/Product
 <div id="containerpie" class= "cs" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
 <br><br>
 <div id="containerTime" class= "cs" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+<br><br>
+<div id="catBar" class = "cs" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
 </div>
 
 <script>
@@ -72,14 +74,14 @@ Highcharts.chart('containerTypes', {
     },
     series: [{
         type: 'pie',
-        name: 'Browser share',
+        name: 'Contact Type',
         innerSize: '50%',
         data: [
-            ['Phone', 8148],
-            ['Email', 1513],
-            ['Blank', 52],
-            ['Chat',  41],
+            ['Blank', 55],
+            ['Chat',  45],
+            ['Email', 1562],
             ['IM', 11],
+            ['Phone', 8703],
             ['Walk Up', 11]
         ]
     }]
@@ -131,34 +133,34 @@ Highcharts.chart('container', {
         name: 'Categories',
         data: [
         		{name: 'Apparel',
-            y: 1592,
+            y: 1737,
             drilldown: 'ap'},
             {name: 'Camp',
-            y: 3017,
+            y: 3164,
             drilldown: 'cp'
             },
             {name: 'Car Racks',
-            y: 593,
+            y: 611,
             drilldown: 'cr'
             },
             {name: 'Climbing',
-            y: 184,
+            y: 192,
             drilldown: 'cl'
             },
             {name: 'Cycling',
-            y: 828,
+            y: 901,
             drilldown: 'cy'
             },
             {name: 'Electronics',
-            y: 541,
+            y: 568,
             drilldown: 'el'
             },
             {name: 'Footwear',
-            y: 1046,
+            y: 1102,
             drilldown: 'fw'
             },
             {name: 'Hike',
-            y: 625,
+            y: 662,
             drilldown: 'hk'
             },
             {name: 'Paddling',
@@ -166,19 +168,19 @@ Highcharts.chart('container', {
             drilldown: 'pd'
             },
             {name: 'Running',
-            y: 29,
+            y: 32,
             drilldown: 'rn'
             },
             {name: 'Snowsports',
-            y: 600,
+            y: 662,
             drilldown: 'sn'
             },
             {name: 'Travel',
-            y: 236,
+            y: 259,
             drilldown: 'tv'
             },
             {name: 'Watersports',
-            y: 93,
+            y: 97,
             drilldown: 'ws'
             },
             {name: 'Yoga',
@@ -186,24 +188,9 @@ Highcharts.chart('container', {
             drilldown: 'yg'
             },
             {name: 'Blank',
-            y: 98,
+            y: 106,
             drilldown: 'bk'
             }
-            //['Apparel', 1569],
-            //['Car Racks', 590],
-            //['Camp', 2976],
-            //['Climbing', 181],
-            //['Cycling', 813],
-            //['Electronics', 534],
-            //['Footwear', 1034],
-            //['Hike', 615],
-            //['Paddling', 283],
-            //['Running', 29],
-            //['Snowsports', 591],
-            //['Travel', 233],
-            //['Watersports', 89],
-            //['Yoga', 10],
-            //['Blank', 96]
         ]
         //dataLabels: {
             //enabled: true,
@@ -228,7 +215,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    1427
+                    1558
                 ],
                 [
                     'BO Cancellation',
@@ -236,7 +223,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'BO/PO',
-                    55
+                    63
                 ],
                 [
                     'CGS',
@@ -252,7 +239,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Incorrect/Defective Item',
-                    19
+                    22
                 ],
                 [
                     'Parts Request',
@@ -264,7 +251,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Q&A',
-                    32
+                    34
                 ],
                 [
                     'Retail',
@@ -280,7 +267,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Site Q/Error',
-                    8
+                    14
                 ]
             ]
         }, {
@@ -289,7 +276,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    2652
+                    2774
                 ],
                 [
                     'BO Cancel',
@@ -297,7 +284,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'BO/PO',
-                    75
+                    87
                 ],
                 [
                     'COM',
@@ -305,23 +292,23 @@ Highcharts.chart('container', {
                 ],
                 [
                     'CS',
-                    4
+                    5
                 ],
                 [
                     'Incorrent/Defective Item',
-                    54
+                    57
                 ],
                 [
                     'Parts Request',
-                    63
+                    73
                 ],
                 [
                     'Product Review',
-                    61
+                    62
                 ],
                 [
                     'Q&A',
-                    70
+                    76
                 ],
                 [
                     'Retail',
@@ -329,7 +316,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Return',
-                    3
+                    5
                 ],
                 [
                     'Safety Memo',
@@ -337,11 +324,11 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Shipping',
-                    2
+                    4
                 ],
                 [
                     'Site Q/Error',
-                    6
+                    8
                 ]
             ]
         }, {
@@ -350,7 +337,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    511
+                    527
                 ],
                 [
                     'BO Cancellation',
@@ -370,7 +357,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Parts Request',
-                    13
+                    15
                 ],
                 [
                     'Product Review',
@@ -395,11 +382,11 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    163
+                    169
                 ],
                 [
                     'BO/PO',
-                    1
+                    3
                 ],
                 [
                     'COM',
@@ -436,19 +423,19 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    720
+                    782
                 ],
                 [
                     'BO Cancellation',
-                    3
+                    4
                 ],
                 [
                     'BO/PO',
-                    37
+                    41
                 ],
                 [
                     'CS',
-                    1
+                    2
                 ],
                 [
                     'Incorrect/Defective Item',
@@ -456,7 +443,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Parts Request',
-                    17
+                    19
                 ],
                 [
                     'Product Review',
@@ -464,7 +451,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Q&A',
-                    16
+                    17
                 ],
                 [
                     'Retail',
@@ -472,15 +459,15 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Safety Memo',
-                    3
+                    4
                 ],
                 [
                     'Shipping',
-                    1
+                    2
                 ],
                 [
                     'Site Q/Error',
-                    7
+                    8
                 ]
             ]
         }, {
@@ -489,7 +476,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    461
+                    485
                 ],
                 [
                     'BO Cancellation',
@@ -497,7 +484,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'BO/PO',
-                    37
+                    41
                 ],
                 [
                     'COM',
@@ -538,7 +525,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    933
+                    987
                 ],
                 [
                     'BO Cancellation',
@@ -546,7 +533,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'BO/PO',
-                    37
+                    40
                 ],
                 [
                     'CS',
@@ -566,7 +553,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Q&A',
-                    26
+                    27
                 ],
                 [
                     'Retail',
@@ -587,7 +574,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    572
+                    606
                 ],
                 [
                     'BO/PO',
@@ -595,11 +582,11 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Incorrect/Defective Item',
-                    7
+                    9
                 ],
                 [
                     'Parts Request',
-                    15
+                    17
                 ],
                 [
                     'Product Review',
@@ -608,6 +595,14 @@ Highcharts.chart('container', {
                 [
                     'Q&A',
                     10
+                ],
+                [
+                    'Retail',
+                    1
+                ],
+                [
+                    'Site Q/Error',
+                    1
                 ]
             ]
         }, {
@@ -653,7 +648,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    28
+                    31
                 ],
                 [
                     'Product Review',
@@ -666,7 +661,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    556
+                    613
                 ],
                 [
                     'BO Cancellation',
@@ -674,11 +669,11 @@ Highcharts.chart('container', {
                 ],
                 [
                     'BO/PO',
-                    13
+                    16
                 ],
                 [
                     'Incorrect/Defective Item',
-                    5
+                    6
                 ],
                 [
                     'Parts Request',
@@ -690,7 +685,11 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Q&A',
-                    11
+                    12
+                ],
+                [
+                    'Retail',
+                    1
                 ],
                 [
                     'Shipping',
@@ -698,7 +697,7 @@ Highcharts.chart('container', {
                 ],
                 [
                     'Site Q/Error',
-                    4
+                    5
                 ]
             ]
         }, {
@@ -707,15 +706,15 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    219
+                    239
                 ],
                 [
                     'BO/PO',
-                    10
+                    11
                 ],
                 [
                     'Parts Request',
-                    1
+                    2
                 ],
                 [
                     'Product Review',
@@ -730,6 +729,10 @@ Highcharts.chart('container', {
                     1
                 ],
                 [
+                    'Shipping',
+                    1
+                ],
+                [
                     'Site Q/Error',
                     2
                 ]
@@ -740,7 +743,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    71
+                    76
                 ],
                 [
                     'BO Cancel',
@@ -794,7 +797,7 @@ Highcharts.chart('container', {
             data: [
                 [
                     'Blank',
-                    64
+                    70
                 ],
                 [
                     'BO Cancel',
@@ -853,22 +856,22 @@ Highcharts.chart('container', {
             colorByPoint: true,
             data: [{
                 name: 'Contact Center',
-                y: 8668
+                y: 9348
             }, {
                 name: 'Customer',
-                y: 819
+                y: 868
             }, {
                 name: 'Blank',
-                y: 54
+                y: 58
             }, {
                 name: 'C&GS',
                 y: 33
             }, {
                 name: 'CS',
-                y: 51
+                y: 60
             }, {
                 name: 'Returns',
-                y: 12
+                y: 14
             }, {
                 name: 'Retail',
                 y: 4
@@ -879,6 +882,95 @@ Highcharts.chart('container', {
         }]
     });
     
+Highcharts.chart('catBar', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Other Logs'
+    },
+    xAxis: {
+        categories: ['Backorder Cancellation', 
+        'Backorder/PO', 
+        'CGS', 
+        'COM', 
+        'Customer Service', 
+        'Incorrect/Defective Item', 
+        'Membership', 
+        'Parts Request', 
+        'Product Review', 
+        'Q&A', 
+        'Retail', 
+        'Return', 
+        'Safety Memo', 
+        'Shipping', 
+        'Site Question/Error' 
+]
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Other Category Sub-Logs'
+        }
+    },
+    legend: {
+        reversed: true
+    },
+    credits:{enabled:false},
+    plotOptions: {
+        series: {
+            stacking: 'normal'
+        }
+    },
+    series: [
+    {
+        name: 'Apparel',
+        data: [8, 63, 1, 1, 4, 22, 0, 5, 20, 34, 2, 2, 3, 14]
+    }, {
+        name: 'Blank',
+        data: [1, 27, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 1, 3]
+    }, {
+        name: 'Camp',
+        data: [8, 87, 0, 1, 5, 57, 0, 73, 62, 76, 3, 5, 1, 4, 8]
+    }, {
+        name: 'Car Racks',
+        data: [3, 8, 0, 0, 1, 6, 0, 15, 25, 24, 0, 1, 0, 1, 0]
+    }, {
+        name: 'Climbing',
+        data: [0, 3, 0, 1, 1, 1, 0, 1, 4, 9, 1, 0, 2, 0, 0]
+    }, {
+        name: 'Cycling',
+        data: [4, 41, 0, 0, 2, 7, 0, 19, 13, 17, 2, 0, 4, 2, 8]
+    }, {
+        name: 'Electronics',
+        data: [2, 41, 0, 1, 0, 9, 0, 6, 7, 14, 0, 1, 0, 1, 1]
+    }, {
+        name: 'Footwear',
+        data: [1, 40, 0, 0, 2, 13, 0, 4, 19, 27, 1, 1, 0, 0, 7]
+    }, {
+        name: 'Hike',
+        data: [0, 7, 0, 0, 0, 9, 0, 17, 11, 10, 1, 0, 0, 0, 0]
+    }, {
+        name: 'Paddling',
+        data: [0, 8, 0, 0, 0, 1, 0, 6, 4, 9, 1, 1, 0, 0, 0]
+    }, {
+        name: 'Running',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0]
+    }, {
+        name: 'Snowsports',
+        data: [3, 16, 0, 0, 0, 6, 0, 3, 2, 12, 1, 0, 0, 1, 5]
+    },{
+        name: 'Travel',
+        data: [0, 11, 0, 0, 0, 0, 0, 2, 1, 2, 1, 0, 0, 1, 2]
+    }, {
+        name: 'Water Sports',
+        data: [3, 5, 0, 0, 0, 0, 0, 3, 6, 1, 1, 0, 0, 0, 2]
+    },  {
+        name: 'Yoga',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+    }]
+});
+  
 Highcharts.chart('containerTime', {
         chart: {
             zoomType: 'x'
@@ -1204,7 +1296,27 @@ Highcharts.chart('containerTime', {
               [Date.UTC(2017,9,16),45],
               [Date.UTC(2017,9,17),51],
               [Date.UTC(2017,9,18),53],
-              [Date.UTC(2017,9,19),28]
+              [Date.UTC(2017,9,19),30],
+              [Date.UTC(2017,9,20),29],
+              [Date.UTC(2017,9,21),36],
+              [Date.UTC(2017,9,22),15],
+              [Date.UTC(2017,9,23),31],
+              [Date.UTC(2017,9,24),34],
+              [Date.UTC(2017,9,25),23],
+              [Date.UTC(2017,9,26),29],
+              [Date.UTC(2017,9,27),23],
+              [Date.UTC(2017,9,28),20],
+              [Date.UTC(2017,9,29),17],
+              [Date.UTC(2017,9,30),50],
+              [Date.UTC(2017,9,31),29],
+              [Date.UTC(2017,10,1),36],
+              [Date.UTC(2017,10,2),29],
+              [Date.UTC(2017,10,3),45],
+              [Date.UTC(2017,10,4),5],
+              [Date.UTC(2017,10,5),13],
+              [Date.UTC(2017,10,6),25],
+              [Date.UTC(2017,10,7),42],
+              [Date.UTC(2017,10,8),78]
             ]
         }]
     });
