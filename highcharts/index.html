@@ -25,11 +25,41 @@ Source: <a href="http://teamsites.rei.com/sites/DS-Product-Support/Lists/Product
   border-left: solid;
   background-color: #F0F0F0;
 }
+
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 5px;
+    width: auto;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+  
 </style>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/drilldown.js"></script>
 
 <div id="nav">
+<div id="toc_container">
+<p class="toc_title">Contents</p>
+<ul class="toc_list">
+  <li><a href="#containerTypes">Contact Types</a></li>
+  <li><a href="#container">Call Categories</a></li>
+  <li><a href="#containerpie">Who is Contacting Product</a></li>
+  <li><a href="#containerTime">Calls per Day</a></li>
+  <li><a href="#catBar">Number of Sub-Category Logs</a></li>
+</ul>
+</div>
 <i>UNDER CONSTRUCTION: this section a work in progess. TOC, Buttons, queries, options, and other functionalities can be placed here. For example, selecting a chart type or data to view in a certain format.</i>
 
 </div>
