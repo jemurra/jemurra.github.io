@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Colors</title>
+
+</head>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script type="text/javascript" src="colors.js"></script>
+<style>
+	.column{
+		float: left;
+		width: 49%;
+	}
+	.row{
+		width: 100%;
+	}
+</style>
+<script type="text/javascript">
+	function logC() {
+		//console.log(colorfs.length);
+		for(var i  = 0; i < colorfs.length; i++){
+			datao = colorfs[i];
+			console.log("Desc :" + datao.Desc + " - " + "Black: " + datao.BLACK);
+		}
+		console.log(colorfs[0].Desc)
+		//alert("hi");
+	}
+
+	function populateD(){
+		for(var i  = 0; i < colorfs.length; i++){
+			//console.log(colorfs[i].Dept);
+			$("#deptList1").append(
+				$('<option/>', {
+					'value': colorfs[i].Dept,
+					'name': colorfs[i].Desc,
+					'text': colorfs[i].Dept + " - " + colorfs[i].Desc
+				})
+			);
+			$("#deptList2").append(
+				$('<option/>', {
+					'value': colorfs[i].Dept,
+					'name': colorfs[i].Desc,
+					'text': colorfs[i].Dept + " - " + colorfs[i].Desc
+				})
+			);
+		}
+	}
+
+	function highChartB(ad, pch){
+		Highcharts.chart(pch, {
+    		chart: {
+        		plotBackgroundColor: null,
+        		plotBorderWidth: null,
+        		plotShadow: false,
+        		type: 'pie'
+    		},
+    		title: {
+        	text: 'Color Families for ' + colorfs[ad].Desc
+    		},
+    		credits:{enabled:false},
+    		exporting: { enabled: false },
+    		tooltip: {
+        		pointFormat: 'Count: <b>{point.y}</b>'
+    		},
+    		plotOptions: {
+        		pie: {
+            		allowPointSelect: true,
+            		cursor: 'pointer',
+            		dataLabels: {
+                		enabled: true,
+                		format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                	style: {
+                    	color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                		}
+            		},
+            		showInLegend: true
+        		}
+    		},
+		    series: [{
+		        name: 'Colors',
+		        colorByPoint: true,
+		        data: [{
+		            name: 'Black',
+		            y: colorfs[ad].BLACK,
+		            color: "#000000"
+		        }, {
+		            name: 'Blue',
+		            y: colorfs[ad].BLUE,
+		            color: "#0000FF"
+		        }, {
+		            name: 'Brown',
+		            y: colorfs[ad].BROWN,
+		            color: "#663300"
+		        }, {
+		            name: 'Gray',
+		            y: colorfs[ad].GRAY,
+		            color: "#808080"
+		        }, {
+		            name: 'Green',
+		            y: colorfs[ad].GREEN,
+		            color: "#00CC00"
+		        }, {
+		            name: 'Multi',
+		            y: colorfs[ad].MULTI,
+		            color: "#003300"
+		        }, {
+		            name: 'Neutral',
+		            y: colorfs[ad].NEUTRAL_K,
+		            color: "#F0E68C"
+		        }, {
+		            name: 'Orange',
+		            y: colorfs[ad].ORANGE,
+		            color: "#FFA500"
+		        }, {
+		            name: 'Pink',
+		            y: colorfs[ad].PINK,
+		            color: "#FFC0CB"
+		        }, {
+		            name: 'Purple',
+		            y: colorfs[ad].PURPLE,
+		            color: "#800080"
+		        }, {
+		            name: 'Red',
+		            y: colorfs[ad].RED,
+		            color: "#FF0000"
+		        }, {
+		            name: 'White',
+		            y: colorfs[ad].WHITE,
+		            color: "#FFFFFF"
+		        }, {
+		            name: 'Yellow',
+		            y: colorfs[ad].YELLOW,
+		            color: "#FFFF00"
+		        }]
+		    }]
+		});
+	}
+
+	function getID(a, wd){
+		var ad;
+		for(var i = 0; i < colorfs.length; i++){
+			if(colorfs[i].Dept == a){
+				var ad = i;
+			}
+			//var ad = colorfs[i].indexOf(a);
+		}
+		//alert(ad);
+		highChartB(ad, wd);
+		}
+
+</script>
+
+<body onload="populateD();">
+<center>
+
+<!--button onclick="highChartB()">Search</button><br>
+<button onclick="logC()">Search2</button><br-->
+<div class="row">
+	<div id="one" class="column" style="border-right: 2px solid black">
+		<select id="deptList1" style="width: 200px;" onchange="getID(this.value, this.id+'w');"></select>
+		<div id="deptList1w" style="min-width: 310px; height: 500px; max-width: 600px; margin: 0 auto"></div>
+	</div>
+
+	<div id="two" class="column">
+		<select id="deptList2" style="width: 200px;" onchange="getID(this.value, this.id+'w');"></select>
+		<div id="deptList2w" style="min-width: 310px; height: 500px; max-width: 600px; margin: 0 auto"></div>
+	</div>
+</div>
+
+</center>
+</body>
+
+</html>
