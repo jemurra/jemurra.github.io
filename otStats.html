@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>OT Stats</title>
+
+</head>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/drilldown.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script type="text/javascript" src="OTstats.js"></script>
+<style>
+	.column{
+	}
+	.row{
+	}
+	.row2{
+	}
+</style>
+<script type="text/javascript">
+	function overVG(){
+		Highcharts.chart('OVGr', {
+		    chart: {
+		        type: 'column',
+		        events: {
+			        drilldown: function(e) {
+			            this.xAxis[0].setTitle({ text: "Vendor" });
+			            this.yAxis[0].setTitle({ text:  "Number of Records"});
+			        },
+			        drillup: function(e) {
+			            this.xAxis[0].setTitle({ text: "Attribute" });
+			            this.yAxis[0].setTitle({ text: "Percent of Attributes" });
+			        }
+			    }
+		    },
+		    title: {
+		        text: 'What REI AC Attributes Are Vendors Populating? <br> (Click Attribute for Breakdown by Vendor)'
+		    },
+		    xAxis: {
+		        type: 'category',
+		        labels: {
+		            rotation: -45,
+		            style: {
+		                fontSize: '13px',
+		                fontFamily: 'Verdana, sans-serif'
+		            }
+		        }
+		    },
+		    yAxis: {
+		        min: 0,
+		        title: {
+		            text: 'Percent/Volume Of Attribute'
+		        }
+		    },
+		    legend: {
+		        enabled: false
+		    },
+		    tooltip: {
+		        pointFormat: 'Percent: <b>{point.y:.f}</b>'
+		    },
+		    credits: {
+        		enabled: false
+    		},
+		    series: [{
+		        name: 'Percentage',
+		        data: [
+		            {"name": 'Brand Name',
+		            "y":100,
+		        	"drilldown": "bn"},
+		            {"name": 'Product Desc',
+		            "y":100,
+		        	"drilldown": "pd"},
+		            {"name": 'Gender',
+		            "y":3,
+		        	"drilldown": "gn"},
+		            {"name": 'Color',
+		            "y":97,
+		        	"drilldown": "clr"},
+		            {"name": 'Color Family',
+		            "y":97,
+		        	"drilldown": "clf"},
+		            {"name": 'Size',
+		            "y":97,
+		        	"drilldown": "sz"},
+		            {"name": 'UPC',
+		            "y":97,
+		        	"drilldown": "upc"},
+		            {"name": 'VPN',
+		            "y":100,
+		        	"drilldown": "vpn"},
+		            {"name": 'Weight',
+		            "y":21,
+		        	"drilldown": "wgt"},
+		            {"name": 'Length',
+		            "y":21,
+		        	"drilldown": "lgh"},
+		            {"name": 'Width',
+		            "y":21,
+		        	"drilldown": "wdth"},
+		            {"name": 'Height',
+		            "y":21,
+		        	"drilldown": "hgt"},
+		            {"name": 'Rounding Profile',
+		            "y":9,
+		        	"drilldown": "rp"},
+		            {"name": 'Cost',
+		            "y":59,
+		        	"drilldown": "cst"},
+		            {"name": 'MSRP',
+		            "y":59,
+		        	"drilldown": "msrp"},
+		            {"name": 'Prop 65',
+		            "y":0,
+		        	"drilldown": "p65"},
+		            {"name": 'Haz Mat',
+		            "y":3,
+		        	"drilldown": "haz"},
+		            {"name": 'COO',
+		            "y":47,
+		        	"drilldown": "coo"},
+		            {"name": 'First Avail Ship',
+		            "y":35,
+		        	"drilldown": "fs"},
+		            {"name": 'HTS',
+		            "y":29,
+		        	"drilldown": "hts"}
+		        ],
+		        dataLabels: {
+		            enabled: true,
+		            rotation: -90,
+		            color: '#FFFFFF',
+		            align: 'right',
+		            format: '{point.y}%', // one decimal
+		            y: 10, // 10 pixels down from the top
+		            style: {
+		                fontSize: '10px',
+		                fontFamily: 'Verdana, sans-serif'
+		            }
+		        }
+		    }],
+		    drilldown:{
+		        	"series":[
+		        		{
+		        			"name": "bn",
+		        			"id": "bn",
+		        			"data":getDRdata("Brand Desc")
+		        		},
+		        		{
+		        			"name": "pd",
+		        			"id": "pd",
+		        			"data": getDRdata("Product Desc")
+		        		},
+		        		{
+		        			"name": "gn",
+		        			"id": "gn",
+		        			"data": getDRdata("Gender")
+		        		},
+		        		{
+		        			"name": "clr",
+		        			"id": "clr",
+		        			"data": getDRdata("Color")
+		        		},
+		        		{
+		        			"name": "clf",
+		        			"id": "clf",
+		        			"data": getDRdata("ColorFam")
+		        		},
+		        		{
+		        			"name": "sz",
+		        			"id": "sz",
+		        			"data": getDRdata("Size")
+		        		},
+		        		{
+		        			"name": "upc",
+		        			"id": "upc",
+		        			"data": getDRdata("UPC")
+		        		},
+		        		{
+		        			"name": "vpn",
+		        			"id": "vpn",
+		        			"data": getDRdata("VPN")
+		        		},
+		        		{
+		        			"name": "wgt",
+		        			"id": "wgt",
+		        			"data": getDRdata("Weight")
+		        		},
+		        		{
+		        			"name": "lgh",
+		        			"id": "lgh",
+		        			"data": getDRdata("Length")
+		        		},
+		        		{
+		        			"name": "wdth",
+		        			"id": "wdth",
+		        			"data": getDRdata("Width")
+		        		},
+		        		{
+		        			"name": "hgt",
+		        			"id": "hgt",
+		        			"data": getDRdata("Height")
+		        		},
+		        		{
+		        			"name": "rp",
+		        			"id": "rp",
+		        			"data": getDRdata("RoundingProfile")
+		        		},
+		        		{
+		        			"name": "cst",
+		        			"id": "cst",
+		        			"data": getDRdata("Cost")
+		        		},
+		        		{
+		        			"name": "msrp",
+		        			"id": "msrp",
+		        			"data": getDRdata("MSRP")
+		        		},
+		        		{
+		        			"name": "p65",
+		        			"id": "p65",
+		        			"data": getDRdata("Prop65")
+		        		},
+		        		{
+		        			"name": "haz",
+		        			"id": "haz",
+		        			"data": getDRdata("HazMat")
+		        		},
+		        		{
+		        			"name": "coo",
+		        			"id": "coo",
+		        			"data": getDRdata("COO")
+		        		},
+		        		{
+		        			"name": "fs",
+		        			"id": "fs",
+		        			"data": getDRdata("FirstAvailShip")
+		        		},
+		        		{
+		        			"name": "hts",
+		        			"id": "hts",
+		        			"data": getDRdata("HTS")
+		        		}
+		        	]
+		        },
+		});
+	}
+
+	function bubbleChart(){
+		Highcharts.chart('bbl', {
+	    chart: {
+	        type: 'bubble',
+	        plotBorderWidth: 1,
+	        zoomType: 'xy'
+	    },
+	    legend: {
+	        enabled: false
+	    },
+	    title: {
+	        text: 'REI Attributes Populating by Number of SKUs by Number of OT Records'
+	    },
+	    xAxis: {
+	        gridLineWidth: 1,
+	        title: {
+	            text: 'Percent REI Attr Populated'
+	        },
+	        labels: {
+	            format: '{value}'
+	        },
+	        plotLines: [{
+	            color: 'black',
+	            dashStyle: 'dot',
+	            width: 2,
+	            value: 50,
+	            label: {
+	                rotation: 0,
+	                y: 15,
+	                style: {
+	                    fontStyle: 'italic'
+	                },
+	                text: 'Avg % REI Attr'
+	            },
+	            zIndex: 3
+	        }]
+	    },
+	    yAxis: {
+	        startOnTick: false,
+	        endOnTick: false,
+	        title: {
+	            text: '# Of REI SKUs'
+	        },
+	        labels: {
+	            format: '{value}'
+	        },
+	        maxPadding: 0.2,
+	        plotLines: [{
+	            color: 'black',
+	            dashStyle: 'dot',
+	            width: 2,
+	            value: 0,
+	            label: {
+	                align: 'right',
+	                style: {
+	                    fontStyle: 'italic'
+	                },
+	                x: -10
+	            },
+	            zIndex: 3
+	        }]
+	    },
+	    tooltip: {
+	        useHTML: true,
+	        headerFormat: '<table>',
+	        pointFormat: '<tr><th colspan="2"><h3>{point.country}</h3></th></tr>' +
+	            '<tr><th>% REI Attr:</th><td>{point.x}%</td></tr>' +
+	            '<tr><th># REI SKUs:</th><td>{point.y}</td></tr>' +
+	            '<tr><th>OT Records:</th><td>{point.z}</td></tr>',
+	        footerFormat: '</table>',
+	        followPointer: true
+	    },
+	    plotOptions: {
+	        series: {
+	            dataLabels: {
+	                enabled: true,
+	                format: '{point.name}'
+	            }
+	        }
+	    },
+	    credits: {
+        		enabled: false
+    		},
+	    series: [{
+	        data: [
+	            { y: 354, x: 73, z: 2847210, name: 'AD', country: 'Addidas' },
+	            { y: 2555, x: 68, z: 3940, name: 'BA', country: 'Baffin' },
+	            { y: 8344, x: 55, z: 3309, name: 'BR', country: 'Brooks' },
+	            { y: 24106, x: 36, z: 590412, name: 'CO', country: 'Columbia' },
+	            { y: 2508, x: 36, z: 42040, name: 'DK', country: 'Dakine' },
+	            { y: 916, x: 77, z: 24805, name: 'DA', country: 'Dansko' },
+	            { y: 523, x: 36, z: 4043, name: 'EC', country: 'Eagle Creek' },
+	            { y: 10791, x: 36, z: 6538, name: 'EX', country: 'Ex Officio' },
+	            { y: 1503, x: 50, z: 16996, name: 'FJ', country: 'Fjallraven' },
+	            { y: 921, x: 50, z: 173102, name: 'FX', country: 'Fox' },
+	            { y: 6707, x: 55, z: 3230, name: 'HT', country: 'Horny Toad' },
+	            { y: 125, x: 86, z: 488765, name: 'JS', country: 'Jansport' },
+	            { y: 12308, x: 50, z: 159793, name: 'KN', country: 'Keen' },
+	            { y: 14166, x: 55, z: 58690, name: 'KH', country: 'Kuhl' },
+	            { y: 18122, x: 36, z: 16260, name: 'MT', country: 'Marmot' },
+	            { y: 3288, x: 59, z: 14662, name: 'MV', country: 'Moving Comfort' },
+	            { y: 2535, x: 82, z: 1206422, name: 'NB', country: 'New Balance' },
+	            { y: 2003, x: 36, z: 1051600, name: 'NI', country: 'Nike' },
+	            { y: 1032, x: 45, z: 67014, name: 'OK', country: 'Oakley' },
+	            { y: 956, x: 59, z: 19587, name: 'OU', country: 'Olukai' },
+	            { y: 25899, x: 41, z: 146337, name: 'PA', country: 'Patagonia' },
+	            { y: 365, x: 18, z: 13, name: 'PZ', country: 'Petzel' },
+	            { y: 19188, x: 55, z: 87423, name: 'PR', country: 'PrAna' },
+	            { y: 11335, x: 45, z: 36667, name: 'RR', country: 'Royal Robins' },
+	            { y: 377, x: 50, z: 3677, name: 'SX', country: 'Saxx' },
+	            { y: 10882, x: 36, z: 48756, name: 'SW', country: 'Smartwool' },
+	            { y: 4, x: 59, z: 62021, name: 'SP', country: 'Spyder' },
+	            { y: 182, x: 55, z: 20633, name: 'ST', country: 'Stance' },
+	            { y: 3667, x: 64, z: 13087, name: 'BU', country: 'Burton' },
+	            { y: 565, x: 36, z: 324, name: 'TH', country: 'Thule' },
+	            { y: 630, x: 36, z: 942520, name: 'TM', country: 'Timberland' },
+	            { y: 1899, x: 36, z: 905950, name: 'UA', country: 'UnderArmour' },
+	            { y: 768, x: 36, z: 1687652, name: 'VN', country: 'Vans' },
+	            { y: 20067, x: 73, z: 2428385, name: 'WV', country: 'Wolverine' }
+	        ]
+	    }]
+	});
+	}
+
+	function getDRdata(prop){
+		//console.log(prop);
+		var ddt = [];
+		for (var i = 0; i < otdata.length; i++){
+			ddt.push([otdata[i].Brand,otdata[i][prop]]);
+		}
+		//console.log(ddt);
+		return(ddt);
+	}
+
+	function reSort() {
+	  // choose target dropdown
+	  var select = $('#deptList1');
+	  select.html(select.find('option').sort(function(x, y) {
+	    // to change to descending order switch "<" for ">"
+	    return $(x).text() > $(y).text() ? 1 : -1;
+	  }));
+	}
+
+	function populateD(){
+		//otdata.sort(otdata.Brand);
+		for(var i  = 0; i < otdata.length; i++){
+			//console.log(colorfs[i].Dept);
+			$("#deptList1").append(
+				$('<option/>', {
+					'value': otdata[i].Brand,
+					'name': otdata[i].Brand,
+					'text': otdata[i].Brand
+				})
+			);
+		}
+		reSort();
+		overVG();
+		bubbleChart();
+	}
+
+	function getCat(a){
+		console.log(a);
+		var cData = [];
+		for(var i in a){
+			cData.push(i);
+			//console.log(a[i]);
+			//return a[0];
+		}
+		//console.log(cData);
+		return(cData.slice(1));
+	}
+
+	function getSeries(srs){
+		var sData = [];
+		for (var i in srs){
+			sData.push(srs[i]);
+			//console.log(srs[i]);
+		}
+		return(sData.slice(1));
+	}
+
+	function highChart(vd){
+		Highcharts.chart('myChart', {
+		    chart: {
+		    	height: 600,
+		        type: 'bar'
+		    },
+		    title: {
+		        text: vd.Brand + ' - OT Attribute Breakdown'
+		    },
+		    xAxis: {
+		        categories: getCat(vd)
+		    },
+		    yAxis: { 
+		        min: 0,
+		        title: {
+		            text: 'Number of Records'
+		        }
+		    },
+		    plotOptions: {
+		        bar: {
+		            dataLabels: {
+		            	enabled: true
+		            }
+		        }
+		    },
+		    credits: {
+        		enabled: false
+    		},
+		    series: [{
+		    	name: 'Records',
+		        data: getSeries(vd)
+		    }]
+		});
+	}
+
+	function getID(a){
+		var ad;
+		console.log(a);
+		for(var i = 0; i < otdata.length; i++){
+			if(otdata[i].Brand == a){
+				var ad = otdata[i];
+				//console.log(ad);
+				return(highChart(ad));
+			}
+			//var ad = otdata[i].indexOf(a);
+		}
+		//alert(ad);
+		//highChart(ad);
+		}
+
+</script>
+
+<body onload="populateD();">
+<center>
+
+<!--button onclick="highChartB()">Search</button><br>
+<button onclick="logC()">Search2</button><br-->
+<!--div class="row"-->
+	<div id="OVGr"></div>
+	<br><hr><br>
+	<div id="bbl"></div>
+	<br><hr><br>
+	<h3>Select a Vendor Below to Get a Snapshot of OT Attirbutes Populated</h3>
+	<div id="one">
+		<select id="deptList1" style="width: 200px;" onchange="getID(this.value);"></select>
+		<!--div id="deptList1w" style="min-width: 310px; height: 500px; max-width: 600px; margin: 0 auto"></div-->
+	</div>
+	<br><br><br>
+<!--/div-->
+
+
+<div id="myChart"></div>
+
+</center>
+</body>
+
+</html>
