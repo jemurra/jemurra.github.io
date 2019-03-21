@@ -25,7 +25,7 @@ var merchm = [
     "Pts": 0
   },
   {
-    "Per": "Go Dawgs",
+    "Per": "Go Ducks",
     "Champ": "Gonzaga",
     "Pts": 0
   },
