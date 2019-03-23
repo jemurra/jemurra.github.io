@@ -47,7 +47,7 @@ var merchm = [
   {
     "Per": "Madster",
     "Champ": "",
-    "Pts": 26
+    "Pts": 27
   },
   {
     "Per": "Mark",
