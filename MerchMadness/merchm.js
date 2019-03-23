@@ -22,7 +22,7 @@ var merchm = [
   {
     "Per": "Gary M",
     "Champ": "Duke",
-    "Pts": 27
+    "Pts": 26
   },
   {
     "Per": "Go Ducks",
