@@ -42,7 +42,7 @@ var merchm = [
   {
     "Per": "Le Baguettes",
     "Champ": "Montana",
-    "Pts": 20
+    "Pts": 21
   },
   {
     "Per": "Madster",
