@@ -2,81 +2,81 @@ var merchm = [
   {
     "Per": "Ankle Breakers",
     "Champ": "NC",
-    "Pts": 27
+    "Pts": 49
   },
   {
     "Per": "Dan",
     "Champ": "Gonzaga",
-    "Pts": 25
+    "Pts": 45
   },
   {
     "Per": "DAWGS",
     "Champ": "Gonzaga",
-    "Pts": 22
+    "Pts": 40
   },
   {
     "Per": "Gary D",
     "Champ": "Mich St",
-    "Pts": 24
+    "Pts": 54
   },
   {
     "Per": "Gary M",
     "Champ": "Duke",
-    "Pts": 22
+    "Pts": 32
   },
   {
     "Per": "Go Ducks",
     "Champ": "Gonzaga",
-    "Pts": 26
+    "Pts": 46
   },
   {
     "Per": "J's Stonecutters",
     "Champ": "Gonzaga",
-    "Pts": 20
+    "Pts": 38
   },
   {
     "Per": "Kelly",
     "Champ": "Duke",
-    "Pts": 27
+    "Pts": 51
   },
   {
     "Per": "Le Baguettes",
     "Champ": "Montana",
-    "Pts": 17
+    "Pts": 29
   },
   {
     "Per": "Madster",
     "Champ": "",
-    "Pts": 22
+    "Pts": 46
   },
   {
     "Per": "Mark",
     "Champ": "Kentuky",
-    "Pts": 24
+    "Pts": 48
   },
   {
     "Per": "Mitch",
     "Champ": "Tennessee",
-    "Pts": 23
+    "Pts": 39
   },
   {
     "Per": "Nick",
     "Champ": "North Carolina",
-    "Pts": 25
+    "Pts": 51
   },
   {
     "Per": "The Snap",
     "Champ": "North Carolina",
-    "Pts": 21
+    "Pts": 41
   },
   {
     "Per": "Tobias",
     "Champ": "Seton Hall",
-    "Pts": 21
+    "Pts": 31
   },
   {
     "Per": "Word Wheelers",
     "Champ": "Duke",
-    "Pts": 22
+    "Pts": 44
   }
 ]
