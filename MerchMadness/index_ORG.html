@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Merch Ops Madness</title>
+
+</head>
+
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script type="text/javascript" src="merchm.js"></script>
+<script type="text/javascript">
+
+function getPeople(p,d){
+		var cData = [];
+		for(var i in p){
+			cData.push(p[i][d]);
+			//console.log(p[i][d]);
+		}
+		return(cData);
+}
+
+function sortData(){
+    merchm.sort((a, b) => (a.Pts < b.Pts) ? 1 : (a.Pts === b.Pts) ? ((a.Per > b.Per) ? 1 : -1) : -1 );
+    console.log(merchm)
+}
+	
+function highChart(){
+		sortData();
+		Highcharts.chart('myChart', {
+		    chart: {
+		    	height: 600,
+		        type: 'bar'
+		    },
+		    title: {
+		        text: 'Race for the Win!'
+		    },
+		    xAxis: {
+		        categories: getPeople(merchm,"Per")
+		    },
+		    yAxis: { 
+		        min: 0,
+		        title: {
+		            text: 'Points'
+		        }
+		    },
+		    plotOptions: {
+		        bar: {
+		            dataLabels: {
+		            	enabled: true
+		            }
+		        }
+		    },
+		    credits: {
+        		enabled: false
+    		},
+		    series: [{
+			showInLegend: false,
+		    	name: 'Points',
+		        data: getPeople(merchm, "Pts")
+		    }]
+		});
+	}
+</script>
+
+<body onload="highChart();">
+<center>
+	<br><br>
+<div id="myChart"></div>
+	<br><br><br>
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-1wig{font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+#myChart {
+  border: 1px solid black;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-1wig">Person</th>
+    <th class="tg-1wig">Champ Picked</th>
+    <th class="tg-1wig">Round 1 Pts</th>
+    <th class="tg-1wig">Round 2 Pts</th>
+    <th class="tg-1wig">Sweet 16 Pts</th>
+    <th class="tg-1wig">Elite 8 Pts</th>
+    <th class="tg-1wig">Final Four Pts</th>
+    <th class="tg-1wig">Champ Pts</th>
+    <th class="tg-1wig">Total</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><a href="Greg.jpg">Ankle Breakers</a></td>
+    <td class="tg-0lax">NC</td>
+    <td class="tg-0lax">27</td>
+    <td class="tg-0lax">22</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">49</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><a href="Dan.jpg">Dan T</a></td>
+    <td class="tg-0lax">Zags</td>
+    <td class="tg-0lax">25</td>
+    <td class="tg-0lax">20</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">45</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><a href="Rory.jpg">DAWGS</a></td>
+    <td class="tg-0lax">Zags</td>
+    <td class="tg-0lax">22</td>
+    <td class="tg-0lax">18</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">40</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><a href="GaryD.jpg">Gary D</a></td>
+    <td class="tg-0lax">Mich. St.</td>
+    <td class="tg-0lax">24</td>
+    <td class="tg-0lax">30</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">54</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax"><a href="GaryM2.jpg">Gary M</a></td>
+    <td class="tg-0lax">Duke</td>
+    <td class="tg-0lax">22</td>
+    <td class="tg-0lax">10</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">32</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Mike.jpg">Go Ducks</a></td>
+    <td class="tg-0lax">Zags</td>
+    <td class="tg-0lax">26</td>
+    <td class="tg-0lax">20</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">46</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Jeremy.jpg">J's Stonecutters</a></td>
+    <td class="tg-0lax">Zags</td>
+    <td class="tg-0lax">20</td>
+    <td class="tg-0lax">18</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">38</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Kelly.jpg">Kelly N</a></td>
+    <td class="tg-0lax">Duke</td>
+    <td class="tg-0lax">27</td>
+    <td class="tg-0lax">24</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">51</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Val.jpg">Le Baguettes</a></td>
+	  <td class="tg-0lax"><font color="red"><s>Montana</s></font></td>
+    <td class="tg-0lax">17</td>
+    <td class="tg-0lax">12</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">29</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Maddy2.jpg">Madster</a></td>
+    <td class="tg-0lax">Zags</td>
+    <td class="tg-0lax">22</td>
+    <td class="tg-0lax">24</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">46</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Mark.jpg">Mark</a></td>
+    <td class="tg-0lax">Kentuky</td>
+    <td class="tg-0lax">24</td>
+    <td class="tg-0lax">24</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">48</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Mitch.jpg">Mitch</a></td>
+    <td class="tg-0lax">Tenn</td>
+    <td class="tg-0lax">23</td>
+    <td class="tg-0lax">16</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">39</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Nick.jpg">Nick</a></td>
+    <td class="tg-0lax">NC</td>
+    <td class="tg-0lax">25</td>
+    <td class="tg-0lax">26</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">51</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Bennet.jpg">The Snap</a></td>
+    <td class="tg-0lax">NC</td>
+    <td class="tg-0lax">21</td>
+    <td class="tg-0lax">20</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">41</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Tobias.jpg">Tobias</a></td>
+	  <td class="tg-0lax"><font color="red"><s>Seton Hall</s></font></td>
+    <td class="tg-0lax">21</td>
+    <td class="tg-0lax">10</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">31</td>
+  </tr>
+  <tr>
+	  <td class="tg-0lax"><a href="Heather.jpg">Word Wheelers</a></td>
+    <td class="tg-0lax">Duke</td>
+    <td class="tg-0lax">22</td>
+    <td class="tg-0lax">22</td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax"></td>
+    <td class="tg-0lax">44</td>
+  </tr>
+</table>
+<br>
+</center>
+</body>
+
+</html>
