@@ -22,9 +22,13 @@ function getPeople(p,d){
 
 function sortData(){
     merchm.sort((a, b) => (a.Pts < b.Pts) ? 1 : (a.Pts === b.Pts) ? ((a.Per > b.Per) ? 1 : -1) : -1 );
-    console.log(merchm)
 }
-	
+
+function sortData2(){
+    merchm.sort((a, b) => (a.R1 + a.R2) < (b.R1 + b.R2) ? 1 : (a.R1 + a.R2) === (b.R1 + b.R2) ? ((a.R1 + a.R2) > (b.R1 + b.R2) ? 1 : -1) : -1 );
+    //console.log(merchm)
+}
+
 function highChart(){
 		sortData();
 		Highcharts.chart('myChart', {
@@ -61,13 +65,68 @@ function highChart(){
 		    }]
 		});
 	}
+	
+function ChangeChart(){
+    sortData2();
+    Highcharts.chart('myChart', {
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Points by Round'
+        },
+        xAxis: {
+            categories: getPeople(merchm,"Per")
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Points'
+            },
+            reversedStacks: false,
+            stackLabels: {
+                    enabled: true,
+                    style: {
+                        fontWeight: 'bold',
+                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                    },
+                    formatter: function() {
+                        return Highcharts.numberFormat(this.total, 0, ',');
+                    }
+                }
+        },
+        legend: {
+            reversed: false
+        },
+        plotOptions: {
+            series: {
+                stacking: 'stream'
+            }
+        },
+        credits: {
+                    enabled: false
+                },
+        series: [{
+            name: 'Round 1',
+            color: '#3773ae',
+            data: getPeople(merchm,"R1")
+        }, {
+            name: 'Round 2',
+            color: '#8bb3da',
+            data: getPeople(merchm,"R2")
+        }]
+    });
+}
+	
 </script>
 
 <body onload="highChart();">
 <center>
 	<br><br>
+	<button onclick="ChangeChart();">Detailed Chart</button> &nbsp<button onclick="highChart();">Normal Chart</button>
+	<br>
 <div id="myChart"></div>
-	<br><br><br>
+	<br><br>
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
 .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
