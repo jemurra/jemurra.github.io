@@ -2,7 +2,7 @@ var merchm = [
   {
     "Per": "Ankle Breakers",
     "Champ": "NC",
-    "Pts": 49,
+    "Pts": 58,
     "R1": 27,
     "R2": 22,
     "R3": 9
@@ -10,7 +10,7 @@ var merchm = [
   {
     "Per": "Dan",
     "Champ": "Gonzaga",
-    "Pts": 45,
+    "Pts": 48,
     "R1": 25,
     "R2": 20,
     "R3": 3
@@ -18,7 +18,7 @@ var merchm = [
   {
     "Per": "DAWGS",
     "Champ": "Gonzaga",
-    "Pts": 40,
+    "Pts": 49,
     "R1": 22,
     "R2": 18,
     "R3": 9
@@ -26,7 +26,7 @@ var merchm = [
   {
     "Per": "Gary D",
     "Champ": "Mich St",
-    "Pts": 54,
+    "Pts": 60,
     "R1": 24,
     "R2": 30,
     "R3": 6
@@ -34,7 +34,7 @@ var merchm = [
   {
     "Per": "Gary M",
     "Champ": "Duke",
-    "Pts": 32,
+    "Pts": 38,
     "R1": 22,
     "R2": 10,
     "R3": 6
@@ -42,7 +42,7 @@ var merchm = [
   {
     "Per": "Go Ducks",
     "Champ": "Gonzaga",
-    "Pts": 46,
+    "Pts": 52,
     "R1": 26,
     "R2": 20,
     "R3": 6
@@ -50,7 +50,7 @@ var merchm = [
   {
     "Per": "J's Stonecutters",
     "Champ": "Gonzaga",
-    "Pts": 38,
+    "Pts": 41,
     "R1": 20,
     "R2": 18,
     "R3": 3
@@ -58,7 +58,7 @@ var merchm = [
   {
     "Per": "Kelly",
     "Champ": "Duke",
-    "Pts": 51,
+    "Pts": 57,
     "R1": 27,
     "R2": 24,
     "R3": 6
@@ -74,7 +74,7 @@ var merchm = [
   {
     "Per": "Madster",
     "Champ": "",
-    "Pts": 46,
+    "Pts": 52,
     "R1": 22,
     "R2": 24,
     "R3": 6
@@ -82,7 +82,7 @@ var merchm = [
   {
     "Per": "Mark",
     "Champ": "Kentuky",
-    "Pts": 48,
+    "Pts": 54,
     "R1": 24,
     "R2": 24,
     "R3": 6
@@ -90,7 +90,7 @@ var merchm = [
   {
     "Per": "Mitch",
     "Champ": "Tennessee",
-    "Pts": 39,
+    "Pts": 45,
     "R1": 23,
     "R2": 16,
     "R3": 6
@@ -98,7 +98,7 @@ var merchm = [
   {
     "Per": "Nick",
     "Champ": "North Carolina",
-    "Pts": 51,
+    "Pts": 57,
     "R1": 25,
     "R2": 26,
     "R3": 6
@@ -106,7 +106,7 @@ var merchm = [
   {
     "Per": "The Snap",
     "Champ": "North Carolina",
-    "Pts": 41,
+    "Pts": 44,
     "R1": 21,
     "R2": 20,
     "R3": 3
@@ -122,7 +122,7 @@ var merchm = [
   {
     "Per": "Word Wheelers",
     "Champ": "Duke",
-    "Pts": 44,
+    "Pts": 53,
     "R1": 22,
     "R2": 22,
     "R3": 9
