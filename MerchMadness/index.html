@@ -25,7 +25,7 @@ function sortData(){
 }
 
 function sortData2(){
-    merchm.sort((a, b) => (a.R1 + a.R2) < (b.R1 + b.R2) ? 1 : (a.R1 + a.R2) === (b.R1 + b.R2) ? ((a.R1 + a.R2) > (b.R1 + b.R2) ? 1 : -1) : -1 );
+    merchm.sort((a, b) => (a.R1 + a.R2 + a.R3) < (b.R1 + b.R2 + b.R3) ? 1 : (a.R1 + a.R2 + a.R3) === (b.R1 + b.R2 + b.R3) ? ((a.R1 + a.R2 + a.R3) > (b.R1 + b.R2 + b.R3) ? 1 : -1) : -1 );
     //console.log(merchm)
 }
 
