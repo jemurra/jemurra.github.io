@@ -24,10 +24,10 @@ function sortData(){
     merchm.sort((a, b) => (a.Pts < b.Pts) ? 1 : (a.Pts === b.Pts) ? ((a.Per > b.Per) ? 1 : -1) : -1 );
 }
 
-function sortData2(){
-    merchm.sort((a, b) => (a.R1 + a.R2 + a.R3) < (b.R1 + b.R2 + b.R3) ? 1 : (a.R1 + a.R2 + a.R3) === (b.R1 + b.R2 + b.R3) ? ((a.R1 + a.R2 + a.R3) > (b.R1 + b.R2 + b.R3) ? 1 : -1) : -1 );
+//function sortData2(){
+    //merchm.sort((a, b) => (a.R1 + a.R2 + a.R3) < (b.R1 + b.R2 + b.R3) ? 1 : (a.R1 + a.R2 + a.R3) === (b.R1 + b.R2 + b.R3) ? ((a.R1 + a.R2 + a.R3) > (b.R1 + b.R2 + b.R3) ? 1 : -1) : -1 );
     //console.log(merchm)
-}
+//}
 
 function highChart(){
 		sortData();
@@ -67,7 +67,7 @@ function highChart(){
 	}
 	
 function ChangeChart(){
-    sortData2();
+    sortData();
     Highcharts.chart('myChart', {
         chart: {
 	    height: 600,
@@ -124,7 +124,7 @@ function ChangeChart(){
 	
 </script>
 
-<body onload="highChart();">
+<body onload="ChangeChart();">
 <center>
 	<br><br>
 	<button onclick="ChangeChart();">Detailed Chart</button> &nbsp<button onclick="highChart();">Normal Chart</button>
