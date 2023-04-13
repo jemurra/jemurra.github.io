@@ -1,0 +1,31 @@
+var explors = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Bend OR", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -121.3179016, 44.0550248, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Susanville CA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -120.6518555, 40.4184625, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Sun Valley ID", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -114.3676758, 43.6907149, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Park City UT", "TS": 2016 }, "geometry": { "type": "Point", "coordinates": [ -111.5045357, 40.6536853, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Moab UT", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -109.5507717, 38.5748098, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Las Vegas NV", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -115.1728535, 36.1147195, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "San Francisco CA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -122.4390221, 37.7834688, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Long Beach CA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -118.1926346, 33.7688736, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "San Diego CA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -117.1621513, 32.7103222, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Phoenix AZ", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -112.0722198, 33.453214, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Durango CO", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -107.8805923, 37.2730966, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Aspen CO", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -106.8193817, 39.1907552, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Boulder CO", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -105.2793217, 40.0179853, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Jackson WY", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -110.7630014, 43.4796119, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Black Hills SD", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -103.6917114, 43.9592136, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Spokane WA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -117.420845, 47.6592598, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Palm Springs CA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -116.5465736, 33.8323514, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Reno NV", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -119.8138905, 39.5315849, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Sacramento CA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -121.4929104, 38.5790371, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Portland OR", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -122.6736832, 45.5263141, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Seattle WA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -122.3353386, 47.6103294, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Tri-Cities WA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -119.1501617, 46.2178518, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Ellensburg WA", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -120.5488586, 46.9996901, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Cannon Beach OR", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -123.9616585, 45.8926367, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Hood River OR", "TS": null }, "geometry": { "type": "Point", "coordinates": [ -121.5140676, 45.7101351, 0.0 ] } }
+]
+}

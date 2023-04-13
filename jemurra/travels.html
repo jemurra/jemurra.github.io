@@ -1,0 +1,209 @@
+  <div class="about">
+  List of my travels/adventures<br>
+  <font color="red">*Still under construction*</font>
+ </div>
+  <div id="mytravelpage">
+    <div id="toc" class="collapse">
+      <div><span class="glyphicon glyphicon-triangle-top tocimg"></span></div>
+      <div id="lyrs">
+        <h3>Map Layers</h3>
+        <form>
+        <div class="checkbox">
+          <label><input id="expl" type="checkbox" onclick="lyrof(this.id);" value="">Explores
+          <a data-toggle="tooltip" data-original-title="Places that I have spent a significant amount of time in or lived in"><img class="infoimg" src="img/info.png"></a>
+        </label>
+        </div>
+        <div class="checkbox">
+          <label><input id="mtns" type="checkbox" onclick="lyrof(this.id);" value="">Mountaineering
+            <a data-toggle="tooltip" data-original-title="Mountains I've climbed"><img class="infoimg" src="img/info.png"></a>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label><input id="nps" type="checkbox" checked="checked" onclick="lyrof(this.id);" value="">National Parks
+            <a data-toggle="tooltip" data-original-title="National Parks that I visited/explored"><img class="infoimg" src="img/info.png"></a>
+          </label>
+        </div>
+        <div class="checkbox">
+          <label><input id="tvls" type="checkbox" checked="checked" onclick="lyrof(this.id);" value="">Travels
+          <a data-toggle="tooltip" data-original-title="Travel/Flight destinations"><img class="infoimg" src="img/info.png"></a>
+        </label>
+        </div>
+        <div class="checkbox">
+          <label><input id="accmp" type="checkbox" onclick="lyrof(this.id);" value="">Random Feel Goods
+          <a data-toggle="tooltip" data-original-title="Currently under constructions"><img class="infoimg" src="img/info.png"></a>
+        </label>
+        </div>
+        <br>
+        <h4>Basemap</h4>
+        <div class="radio">
+          <label><input id="osmbase" class="leaflet-control-layers-selector" checked="checked" type="radio" name="leaflet-base-layers">OSM Simple</label>
+        </div>
+        <div class="radio">
+          <label><input id="cdb_dark" class="leaflet-control-layers-selector" type="radio" name="leaflet-base-layers">Dark</label>
+        </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="mymap"></div>
+    <br>
+    <div id="btnclp">
+        <button type="button" class="btn btn-info mybtn" data-toggle="collapse" data-target="#toc"><span class="glyphicon glyphicon-menu-hamburger"></span></button>
+        <!--button type="button" class="btn btn-info mybtn" data-toggle="collapse" data-target="#toc"><span class="glyphicon glyphicon-remove"></span></button-->
+    </div>
+  </div>
+
+<script type="text/javascript" src="npse.js"></script>
+<script type="text/javascript" src="explors.js"></script>
+<script type="text/javascript" src="mountain.js"></script>
+<script type="text/javascript" src="trvls.js"></script>
+<script type="text/javascript" src="acc.js"></script>
+
+<script type="text/javascript">
+
+	var tmap = L.map('mymap', {}).setView([27.6, -59.2], 2);
+	var osmbase = new L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    }).addTo(tmap);
+  tmap.options.minZoom=2;
+  //tmap.setMaxBounds([
+      //[82.05805, 200.28125],[-82.29793, -175.67188]
+    //]);
+
+  var cdb_dark = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+  subdomains: 'abcd',
+  maxZoom: 19
+  });
+
+  var mi = L.icon({
+    iconUrl: 'img/mtn2.png'
+    ,iconSize: [30,37]
+  });
+
+  var pi = L.icon({
+    iconUrl: 'img/nps2.png'
+    ,iconSize: [30,37]
+  });
+
+  var ti = L.icon({
+    iconUrl: 'img/travel2.png'
+    ,iconSize: [30,37]
+  });
+
+  var xi = L.icon({
+    iconUrl: 'img/binos2.png'
+    ,iconSize: [30,37]
+  });
+
+  var nps = L.geoJson(npse,{
+      pointToLayer: function (feature, latlng) {
+          return L.marker(latlng, {
+              opacity: 1,
+              fillOpacity: 0.8,
+              icon: pi
+          });
+      }
+      ,onEachFeature: openPopup
+  });
+
+  var expl = L.geoJson(explors,{
+      pointToLayer: function (feature, latlng) {
+          return L.marker(latlng, {
+              opacity: 1,
+              fillOpacity: 0.8,
+              icon: xi
+          });
+      }
+      ,onEachFeature: openPopup
+  });
+
+  var mtns = L.geoJson(mountains,{
+      pointToLayer: function (feature, latlng) {
+          return L.marker(latlng, {
+              opacity: 1,
+              fillOpacity: 0.8,
+              icon: mi
+          });
+      }
+      ,onEachFeature: openPopup
+  });
+
+  var tvls = L.geoJson(travls,{
+      pointToLayer: function (feature, latlng) {
+          return L.marker(latlng, {
+              opacity: 1,
+              fillOpacity: 0.8,
+              icon: ti
+          });
+      }
+      ,onEachFeature: openPopup
+  });
+
+  var accmp = L.geoJson(accmps,{
+      pointToLayer: function (feature, latlng) {
+          return L.marker(latlng, {
+              opacity: 1,
+              fillOpacity: 0.8
+          });
+      }
+      ,onEachFeature: openPopup
+  });
+
+  function openPopup(feature, layer){
+      var aname = feature.properties.Name;
+      var pz = feature.properties.TS;
+      var pContent = "<b>"+aname+"</b>"+"<br>"+"Date: "+pz;
+      layer.bindPopup(pContent);
+  }
+
+  nps.addTo(tmap);
+  tvls.addTo(tmap);
+
+  //var baseLayers = {
+      //"OSM Basemap": osmbase,
+      //"Dark": cdb_dark
+  //};
+
+  tmap.zoomControl.setPosition('topright');
+  //L.control.layers(baseLayers).addTo(tmap);
+
+  function lyrof(lyrc){
+    console.log(lyrc);
+  }
+
+    $(function(){
+      $(':checkbox').on("change", function(){
+        if (this.checked){
+          tmap.addLayer(window[$(this).attr('id')]);
+        }
+        else{
+          tmap.removeLayer(window[$(this).attr('id')]);
+        }
+      });
+    });
+
+    $(function(){
+      $(':radio').on("change", function(){
+        var new_base = $(this).attr('id');
+        if (new_base == 'osmbase'){
+          tmap.addLayer(osmbase);
+          tmap.removeLayer(cdb_dark);
+        }
+        else{
+          tmap.addLayer(cdb_dark);
+          tmap.removeLayer(osmbase); 
+        }
+      });
+    });
+
+    $('a').tooltip({
+      placement: 'right'
+    })
+
+    $('#btnclp').click(function(){
+      //$(this).find('span').toggleClass("glyphicon-menu-hamburger");
+      $(this).find('span').toggleClass("glyphicon-remove glyphicon-menu-hamburger");
+      //$(this).find('button').toggleClass("btn-info btn-danger");
+    })
+
+</script>

@@ -1,0 +1,211 @@
+<style type="text/css">
+</style>
+
+<div class="col-sm-3 col-md-3 fixc">
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseHome">Me</a>
+                </h4>
+            </div>
+            <div id="collapseHome" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a href="#aboutme">Everything Me</a>
+                </div>
+                <div class="panel-body">
+                    <a href="#coolMaps">Random Maps I've Helped With</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Python</a>
+                </h4>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a href="#py1">The power of Flask</a>
+                </div>
+                <div class="panel-body">
+                    <a href="#py2">Remove html markup</a>
+                </div>
+                <div class="panel-body">
+                    <a href="#py3">Python Request Example</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">JS</a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a href="#js1">Checkbox Leaflet</a>
+                </div>
+                <div class="panel-body">
+                    <a href="#js2">Random characters</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">ArcGIS</a>
+                </h4>
+            </div>
+            <div id="collapseThree" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <a href="#amec">Error Collage</a>
+                </div>
+                <div class="panel-body">
+                    <a href="#egt">Good Things with ESRI</a>
+                </div>
+                <div class="panel-body">
+                    <a href="#arcpy">Random Arcpy snippets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="dropdown">
+    </div>
+</div>
+
+<div id="right_col">
+    <div id="aboutme" class="well">
+        <h1>Everything Me</h1>
+        Sry, it may be boring and dry, to some. But hey, I enjoy it.
+    </div>
+    <div>
+        I'm a person who values the power of learning. If there's something that I want to understand, I make a goal and set out to accomplish that goal. Weather it's a physical goal, or a mental goal. I'm also a music fantanic in my mind. I LOVE music and the power that it can have. I have over 7 years of professional computer, programming, and analysis experience. I also have over 20 years of music experience and owe a whole list of people to thank for allowing me the opportunity to play and grow as a musician with them. I also consider myself an athlete and enjoy just about every sport. Even water polo, which is extremely difficult and much harder than it looks. There, I said it.
+        <br>
+        <a>Resume</a>
+        <br>
+        <a>Portfolio</a>
+        <br>
+    </div>
+    <hr>
+    <div id="coolMaps">
+        <h3>Cool Maps I've Helped With And/Or Made For Fun</h3>
+        <a href="https://gis.oregonmetro.gov/metromap" target="_blank">Oregon Merto Map</a>
+        <br>
+        <a href="https://gis.oregonmetro.gov/bikethere" target="_blank">Oregon Metro BikeThere!</a>
+        <br>
+        <a href="https://jemurra.github.io/memmap" target="_blank">REI Member Map</a>
+        <br>
+        <a href="https://gis.oregonmetro.gov/bikethere" target="_blank">Oregon Metro BikeThere!</a>
+        <br>
+        <a href="https://jemurra.github.io/reiadvmap2" target="_blank">REI Adventures Map</a>
+        <br>
+        <a href="https://gis.oregonmetro.gov/trailcounts" target="_blank">Oregon Metro Trail Counts Snapshot</a>
+        <br>
+        <a href="https://jemurra.github.io/highcharts" target="_blank">Fun With HighCharts</a>
+    </div>
+    <hr>
+    <div id="py1" class="well">
+        <h1>Random Python Findings</h1>
+        Over the years, I've came across several random but perhaps, maybe, useful python functions or findings. Most are weak sauce, but hey, yeah...
+    </div>
+    <div>
+        <h3>Behold! The power of Flask!</h3>
+        <br>
+        I had a fantastic co-worker who, at a time when I was looking for a quick way to create a UI that communicated with a DB, showed me the Flask.py framework. Sweet! No .NET, no php, just straight python, js, and html for a full stack service.
+        <br>
+        <b><u>Example:</u></b>
+        <br>
+        Step 1: create a Flask python file. Import flask and other libraries you may need, setup the port to run, import your files using @app.rout, and add another route for a function. So what would this look like?
+        <br>
+        <img src="img/pyf1.png" style="max-width: 600px;">
+        <br>
+        Step 2: create a html button that calls function such as:
+        <br>
+        <img src="img/pyf2.png" style="max-width: 600px;">
+        <br>
+        Step 3: create some js that routes to flask service. Ingore my examples to some extent, the variable and such can be anything. How would that look?
+        <br>
+        <img src="img/pyf3.png" style="max-width: 600px;">
+        <br>
+        Viola! The power of flask! You can pass js variables into a python function to insert/get/post data to a db. Fantastic!
+    </div>
+    <br><hr>
+    <div id="py2">
+        <h3>Remove HTML markup from data</h3>
+        Came across this little nugget while doing some "research" at work. Used this a lot with ArcPy field calc to remove attribute fields with html markup in them. Made it easy to strip those characters for easier viewing.
+        <br>
+        <img src="img/py4.png" style="max-width: 600px">
+    </div>
+    <br><hr>
+    <div id="py3">
+        <h3>Gotta love python request</h3>
+        Handy little nugget to get data from a source. Example below was used to extract and dump data from OuterSpatial API.
+        <br>
+        <img src="img/reqpy.png" style="max-width: 600px">
+    </div>
+    <br>
+    <hr>
+    <div id="js1" class="well">
+        <h1>Random JS Findings</h1>
+        Over the years, I've came across several random but perhaps, maybe, useful js functions or findings. Most are weak sauce, but hey, yeah...
+    </div>
+    <div>
+        <h3>Leaflet Add Layer based on Div id</h3>
+        Trying to create a function that will add a map layer to leaflet based on the id of the checkbox div. Using 'this.id' would not translate to leaflet as a valid variable for a map layer of the same name. For example, loggin the checkbox id would result in a string of, say, 'Mountains'. Say I had a geojson marker layer in leaftet called 'Mountains'. Passing an event listner to a checkbox such as <font color="blue">'map.addLayer($(this).attr('id'));' </font> would result in an error of 'TypeError' in leaflet js. What needed to happen is, add window object so the browser can communicate with the current window objects. So in the end: <font color="blue">'map.addLayer(window[$(this).attr('id')]);' </font> = success!
+        <br>
+        Yeah.
+        <br>
+        I know.
+        <br>
+    </div>
+    <hr>
+    <div id="js2">
+        <h3>Random Characters</h3>
+        Simple to use js function to create a string of x number of random characters from an array. Uses math.random to generate a random number and times this by the length of the array. Then uses math.floor to round down that number and pulls the character from the array at the number. Does this for X amount of times for how long you want your random string. Temporary passwords anyone?
+        <br>
+        <img class="mig" src="img/randomString.png">
+        <br><hr><br>
+
+    </div>
+    <div id="amec" class="well">
+        <h1>ESRI</h1>
+        Random findings with using a *cough* non buggy software. Thank you ESRI, error 9999.
+    </div>
+    <div >
+        <h3>Random errors from over the years.</h3>
+        <img class="mig" src="img/ame.jpeg">
+    </div>
+    <hr>
+    <div id="egt">
+        <h3>Other random ESRI stuff</h3>
+        Good things with ESRI. Stuff they've done right. There is a list, and yes they've done good, and yes it's easy to blame ESRI.
+    </div>
+    <div>
+        Um, to be continued, still searching.
+        <br>
+        Oh! Their js api sandbox! Check it out, it makes it fun to test and see possibilities live.
+        <br>
+        <a href="https://developers.arcgis.com/javascript/3/sandbox/sandbox.html?sample=map_topo" target="_blank">ESRI Sandbox</a>
+        <br>
+    </div>
+    <br>
+    <hr>
+    <div id="arcpy">
+        <h3>Random useful bits I came across using Arcpy.</h3>
+        Print a list of missing values from a sequence.
+        <br>
+        <img src="img/arcpy1.png" style="max-width: 600px">
+        <br>
+        <hr>
+        Print duplicate values from a column.
+        <br>
+        <img src="img/arcpy2.png" style="max-width: 600px">
+        <br>
+        <br>
+    </div>
+
+</div>

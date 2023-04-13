@@ -1,0 +1,30 @@
+var npse = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "North Cascades NP", "TS": "08\/2011" }, "geometry": { "type": "Point", "coordinates": [ -121.2863159, 48.6954929, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Mount Rainier NP", "TS": "1983-Now" }, "geometry": { "type": "Point", "coordinates": [ -121.7237091, 46.8545565, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Kenai Fjords NP", "TS": "09\/2015" }, "geometry": { "type": "Point", "coordinates": [ -149.7848511, 60.0525028, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Katmai NP", "TS": "09\/2015" }, "geometry": { "type": "Point", "coordinates": [ -155.7909393, 58.555225, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Crater Lake NP", "TS": "07\/2011 <br> 07\/2014" }, "geometry": { "type": "Point", "coordinates": [ -122.1322632, 42.9453657, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Redwoods NP", "TS": "07\/2015" }, "geometry": { "type": "Point", "coordinates": [ -123.9809723, 41.1899123, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Lassen Volcanic NP", "TS": "04\/2013" }, "geometry": { "type": "Point", "coordinates": [ -121.4528275, 40.4970924, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Death Valley NP", "TS": "03\/2008" }, "geometry": { "type": "Point", "coordinates": [ -117.1307373, 36.5350192, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Yosemite NP", "TS": "09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -119.606781, 37.8228024, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Grand Canyon NP", "TS": "09\/2010" }, "geometry": { "type": "Point", "coordinates": [ -112.0420074, 36.057981, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Petrified Forest NP", "TS": "1998" }, "geometry": { "type": "Point", "coordinates": [ -109.7911835, 34.9416738, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Arches NP", "TS": "03\/2011 <br> 09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -109.5845032, 38.6897975, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Canyon Lands NP", "TS": "03\/2011 <br> 09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -109.8783875, 38.2947869, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Mesa Verde NP", "TS": "09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -108.4707642, 37.246728, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Black Canyon of the Gunnison NP", "TS": "09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -107.7240372, 38.5771584, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Rocky Mountain NP", "TS": "09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -105.6520844, 40.3543935, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Grand Teton NP", "TS": "09\/2010" }, "geometry": { "type": "Point", "coordinates": [ -110.6968689, 43.7765477, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Yellowstone NP", "TS": "09\/2010 <br> 09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -110.6391907, 44.713562, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Glacier NP", "TS": "06\/2008 <br> 08\/2011 <br> 09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -113.8430786, 48.6764537, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Waterton NP", "TS": "08\/2011" }, "geometry": { "type": "Point", "coordinates": [ -113.8870239, 49.0756651, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Badlands NP", "TS": "09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -102.1179199, 43.7938978, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Wind Cave NP", "TS": "09\/2016" }, "geometry": { "type": "Point", "coordinates": [ -103.4541321, 43.6211648, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Hawaii Volcanoes NP", "TS": "07\/2012 <br> 10\/2019"}, "geometry": { "type": "Point", "coordinates": [ -155.275789, 19.421024, 0.0 ] } },
+{ "type": "Feature", "properties": { "Name": "Olympic NP", "TS": "05\/2018" }, "geometry": { "type": "Point", "coordinates": [ -123.529598, 47.873848, 0.0 ] } }
+]
+}

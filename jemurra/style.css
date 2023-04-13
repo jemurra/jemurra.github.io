@@ -1,0 +1,121 @@
+body{
+	margin-top: 60px;
+	text-align: center;
+	height: 100%;
+	width: 100%;
+	/*font-family: Merriweather,'Helvetica Neue',Arial,sans-serif;*/
+}
+
+p{
+	font-size: 18px;
+	max-width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.homeimg{
+	display: block;
+	margin: auto;
+	max-width: 900px;
+	max-height: 250px;
+	min-width: 400px;
+	min-height: 200px;
+}
+
+.navimg{
+	margin-left: 10px;
+}
+
+#mymap{
+	height:500px;
+}
+
+#toc {
+	height: 350px;
+	width: 220px;
+	/*border-right: thin solid #000000;*/
+	background-color: whitesmoke;
+	padding-top: 30px;
+	padding-left: 20px;
+	position: absolute;
+	top:150px;
+	left:20px;
+	z-index: 1000;
+	opacity: .8;
+}
+
+#bclk {
+	width: 50px;
+	background-color: red;
+}
+
+.container{
+	width: 100%;
+}
+
+#lyrs{
+	text-align: left;
+	padding-left: 5px;
+}
+
+.himg{
+	width: 90%;
+}
+
+.qfont{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: 20px;
+}
+
+#myCarousel{
+	width:70%;
+	margin: auto;
+}
+
+.mig{
+	max-width: 80%;
+}
+
+.mybtn{
+	position: absolute;
+	z-index: 1000;
+	top: 110px;
+	left: 20px;
+}
+
+.workbody{
+	text-align: left;
+}
+
+.infoimg{
+	width:12px;
+	height: 12px;
+}
+
+.photocred{
+	font-size: 10px;
+}
+
+.linkicons{
+	width: 40px;
+	height: 40px;
+}
+
+#right_col {
+   float:right;
+   width:75%;
+   padding-right: 20px;
+   font-color:blue;
+}
+
+.fixc{
+    position: fixed;
+    padding: 5px 20px 1px 0px;
+}
+
+.tocimg{
+	position: fixed;
+	top:140px;
+	left:33px;
+	color: whitesmoke;
+}
