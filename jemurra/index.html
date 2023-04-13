@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>jemurra</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-left"><img src="img/avatar.jpg" class="img-circle navimg" width="50" height="50"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right" id="myNavbar2">
+        <li class="active"><a data-toggle="pill" href="#homepage">Home</a>
+        <li><a data-toggle="pill" href="#workpage">Work</a></li>
+        <li><a data-toggle="pill" href="#travelpage">Travels</a></li>
+        <li><a data-toggle="pill" href="#musicpage">Music</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="tab-content">
+    <div id="homepage" class="tab-pane active"></div>
+    <div id="workpage" class="tab-pane"></div>
+    <div id="travelpage" class="tab-pane"></div>
+    <div id="musicpage" class="tab-pane"></div>
+  </div>
+</div>
+
+</body>
+</html>
+
