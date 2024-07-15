@@ -166,12 +166,13 @@ function mapToNumericPoints(value) {
   // Create the chart
   Highcharts.chart('chartContainer', {
     chart: {
-      type: 'bar' // Bar chart type
+      type: 'column' // Bar chart type
     },
     title: {
       text: 'Fruit Consumption'
     },
     xAxis: {
+      categories: chartData.categories, // Categories (y-axis labels)
       title: {
         text: 'Quantity' // X-axis title
       },
@@ -180,7 +181,6 @@ function mapToNumericPoints(value) {
       }
     },
     yAxis: {
-      categories: chartData.categories, // Categories (y-axis labels)
       title: {
         text: 'Fruit' // Y-axis title
       }
