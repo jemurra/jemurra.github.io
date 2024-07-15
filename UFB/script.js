@@ -137,26 +137,6 @@ function handleColumnHeaderClick(columnIndex) {
     }
 }
 
-// Function to map text values to numeric points
-function mapToNumericPoints(value) {
-    switch (value) {
-        case '1B':
-            return 1;
-        case '2B':
-            return 2;
-        case '3B':
-            return 3;
-        case 'HR':
-            return 4;
-        case 'BB':
-            return 0.75;
-        case 'RE':
-            return 0.25;
-        default:
-            return 0; // Return 0 or handle other cases as needed
-    }
-}
-
 // HIGHCHARTS FUNCTIONS BELOW
 // Function to convert CSV string to array
 function csvToArray(csv) {
