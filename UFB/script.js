@@ -196,6 +196,9 @@ function createHighchart(seriesData) {
             }
         },
         series: seriesData // Series data prepared earlier
+        credits: {
+            enabled: false // Disable credits
+        }
     });
 }
 
