@@ -4,6 +4,8 @@ let totalRow = []; // Array to store total row
 let currentSortColumn = ''; // Variable to keep track of current sort column
 let sortDirection = 'asc'; // Variable to keep track of sort direction
 
+Highcharts.setOptions({ credits: false });
+
 // Function to check input text
 function checkInput() {
     const inputText = document.getElementById('inputText').value.trim();
@@ -217,9 +219,6 @@ function createHighchart(seriesData) {
             }
         },
         series: seriesData // Series data prepared earlier
-        credits: {
-            enabled: false // Disable credits
-        }
     });
 }
 
