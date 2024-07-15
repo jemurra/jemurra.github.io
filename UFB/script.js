@@ -89,6 +89,14 @@ function renderTable(header, data) {
             td.textContent = cell;
         });
     });
+
+    // Add event listener to table rows for filtering Highcharts data
+    const tableRows = tbody.querySelectorAll('tr');
+    tableRows.forEach((row, index) => {
+        row.addEventListener('click', () => {
+            filterHighchartsData(index);
+        });
+    });
 }
 
 // Function to handle column header click for sorting
@@ -158,9 +166,9 @@ function mapToNumericPoints(value) {
         case 'HR':
             return 4;
         case 'BB':
-            return .8;
+            return 0.75;
         case 'RE':
-            return .2;
+            return 0.25;
         default:
             return 0; // Return 0 or handle other cases as needed
     }
@@ -182,7 +190,6 @@ function processAndRenderChart(csv) {
 
         // Filter out empty values and create data array for the series
         const data = playerData.filter(value => value !== '').map((value, index) => ({
-            //y: 1, // Set value to 1 as per your requirement
             y: mapToNumericPoints(value), // Map text value to numeric point
             name: headerRow[index + 1] // Use only the column header
         }));
@@ -219,6 +226,46 @@ function createHighchart(seriesData) {
             }
         },
         series: seriesData // Series data prepared earlier
+    });
+}
+
+// Function to filter Highcharts data based on clicked row index
+function filterHighchartsData(rowIndex) {
+    // Get the row data from csvData array
+    const rowData = csvData[rowIndex];
+
+    // Prepare filtered series based on clicked row data
+    const filteredSeries = rowData.slice(1).map((value, index) => ({
+        y: mapToNumericPoints(value),
+        name: headerRow[index + 1]
+    }));
+
+    // Create a new chart with filtered series
+    Highcharts.chart('chartContainer', {
+        chart: {
+            type: 'line'
+        },
+        title: {
+            text: 'At Bats By Brewer :)'
+        },
+        xAxis: {
+            title: {
+                text: 'At Bat'
+            },
+            categories: headerRow.slice(1) // Use only the column headers
+        },
+        yAxis: {
+            title: {
+                text: 'Result'
+            }
+        },
+        series: [{
+            name: rowData[0], // Player name as series name
+            data: filteredSeries // Filtered data array for the series
+        }],
+        credits: {
+            enabled: false // Disable credits
+        }
     });
 }
 
