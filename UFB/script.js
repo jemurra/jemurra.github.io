@@ -97,6 +97,19 @@ function renderTable(header, data) {
             filterHighchartsData(index);
         });
     });
+    // Create table body and rows from data
+    let tbody = table.createTBody();
+    data.forEach((rowData, rowIndex) => {
+        let row = tbody.insertRow();
+        rowData.forEach(cell => {
+            let td = row.insertCell();
+            td.textContent = cell;
+        });
+
+        // Add click event listener to each row
+        row.addEventListener('click', () => {
+            filterHighchartsData(rowIndex); // Filter Highcharts based on clicked row index
+        });
 }
 
 // Function to handle column header click for sorting
@@ -209,7 +222,7 @@ function processAndRenderChart(csv) {
 function createHighchart(seriesData) {
     Highcharts.chart('chartContainer', {
         chart: {
-            type: 'line' // chart type here
+            type: 'line' // Use 'line' type for multiple line series
         },
         title: {
             text: 'At Bats By Brewer :)' // Chart title
@@ -218,7 +231,7 @@ function createHighchart(seriesData) {
             title: {
                 text: 'At Bat' // X-axis title
             },
-            categories: seriesData.length > 0 ? seriesData[0].data.map(point => point.name) : [] // Categories based on data points
+            categories: seriesData.length > 0 ? seriesData[0].data.map(point => point.name) : [] // Initial categories based on data points
         },
         yAxis: {
             title: {
@@ -229,7 +242,7 @@ function createHighchart(seriesData) {
     });
 }
 
-// Function to filter Highcharts data based on clicked row index
+/ Function to filter Highcharts data based on clicked row index
 function filterHighchartsData(rowIndex) {
     // Get the row data from csvData array
     const rowData = csvData[rowIndex];
@@ -240,32 +253,18 @@ function filterHighchartsData(rowIndex) {
         name: headerRow[index + 1]
     }));
 
-    // Create a new chart with filtered series
-    Highcharts.chart('chartContainer', {
-        chart: {
-            type: 'line'
-        },
-        title: {
-            text: 'At Bats By Brewer :)'
-        },
+    // Get the existing chart instance
+    const chart = Highcharts.charts[0];
+
+    // Update series data and categories
+    chart.update({
         xAxis: {
-            title: {
-                text: 'At Bat'
-            },
             categories: headerRow.slice(1) // Use only the column headers
-        },
-        yAxis: {
-            title: {
-                text: 'Result'
-            }
         },
         series: [{
             name: rowData[0], // Player name as series name
             data: filteredSeries // Filtered data array for the series
-        }],
-        credits: {
-            enabled: false // Disable credits
-        }
+        }]
     });
 }
 
