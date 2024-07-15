@@ -35,6 +35,7 @@ function loadCSVData() {
         })
         .then(csv => {
             processCSV(csv);
+            processAndRenderChart(csv); // Process and render Highcharts chart with initial data
         })
         .catch(error => {
             console.error('Error fetching CSV:', error);
@@ -91,26 +92,24 @@ function renderTable(header, data) {
         });
     });
 
-    // Add click event listener to each row for filtering Highcharts data
-    tbody.querySelectorAll('tr').forEach((row, rowIndex) => {
-        row.addEventListener('click', () => {
-            filterHighchartsData(rowIndex); // Filter Highcharts based on clicked row index
+    // Add event listener for column header click for sorting
+    table.querySelectorAll('th').forEach((header, index) => {
+        header.addEventListener('click', () => {
+            handleColumnHeaderClick(index.toString());
         });
     });
 }
 
 // Function to handle column header click for sorting
-function handleColumnHeaderClick(event) {
-    const columnIndex = event.target.getAttribute('data-column');
-
-    if (columnIndex !== null && columnIndex !== 'total') {
+function handleColumnHeaderClick(columnIndex) {
+    if (columnIndex !== 'total') {
         // Determine if clicked column is the current sort column
-        if (currentSortColumn === columnIndex.toString()) {
+        if (currentSortColumn === columnIndex) {
             // Toggle sort direction
             sortDirection = (sortDirection === 'asc') ? 'desc' : 'asc';
         } else {
             // Set new sort column and default to ascending
-            currentSortColumn = columnIndex.toString();
+            currentSortColumn = columnIndex;
             sortDirection = 'asc';
         }
 
@@ -120,7 +119,7 @@ function handleColumnHeaderClick(event) {
         });
 
         // Add sort indicator to clicked header
-        event.target.classList.add(sortDirection);
+        document.querySelector(`th[data-column="${columnIndex}"]`).classList.add(sortDirection);
 
         // Perform sorting
         csvData.sort((a, b) => {
@@ -137,16 +136,6 @@ function handleColumnHeaderClick(event) {
         renderTable(headerRow, csvData);
     }
 }
-
-// Event listener for column header click
-document.addEventListener('click', function(event) {
-    if (event.target.tagName === 'TH') {
-        handleColumnHeaderClick(event);
-    }
-});
-
-// Show popup on page load
-document.getElementById('popupOverlay').style.display = 'flex';
 
 // HIGHCHARTS FUNCTIONS BELOW
 // Function to convert CSV string to array
@@ -209,7 +198,7 @@ function processAndRenderChart(csv) {
 function createHighchart(seriesData) {
     Highcharts.chart('chartContainer', {
         chart: {
-            type: 'line' // Use 'line' type for multiple line series
+            type: 'bar' // Use 'line' type for multiple line series
         },
         title: {
             text: 'At Bats By Brewer :)' // Chart title
@@ -229,32 +218,6 @@ function createHighchart(seriesData) {
     });
 }
 
-// Function to filter Highcharts data based on clicked row index
-function filterHighchartsData(rowIndex) {
-    // Get the row data from csvData array
-    const rowData = csvData[rowIndex];
-
-    // Prepare filtered series based on clicked row data
-    const filteredSeries = rowData.slice(1).map((value, index) => ({
-        y: mapToNumericPoints(value),
-        name: headerRow[index + 1]
-    }));
-
-    // Get the existing chart instance
-    const chart = Highcharts.charts[0];
-
-    // Update series data and categories
-    chart.update({
-        xAxis: {
-            categories: headerRow.slice(1) // Use only the column headers
-        },
-        series: [{
-            name: rowData[0], // Player name as series name
-            data: filteredSeries // Filtered data array for the series
-        }]
-    });
-}
-
 // Example CSV processing and chart rendering on load
 const csvUrl = './rawdata.csv'; // Replace with your CSV file URL or endpoint
 
@@ -266,7 +229,8 @@ fetch(csvUrl)
         return response.text();
     })
     .then(csv => {
-        processAndRenderChart(csv);
+        processCSV(csv);
+        processAndRenderChart(csv); // Initial rendering of Highcharts chart
     })
     .catch(error => {
         console.error('Error fetching CSV:', error);
