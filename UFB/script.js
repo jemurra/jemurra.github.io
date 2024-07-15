@@ -144,6 +144,26 @@ function csvToArray(csv) {
     return csv.trim().split('\n').map(row => row.split(','));
 }
 
+// Function to map text values to numeric points
+function mapToNumericPoints(value) {
+    switch (value) {
+        case '1B':
+            return 1;
+        case '2B':
+            return 2;
+        case '3B':
+            return 3;
+        case 'HR':
+            return 4;
+        case 'BB':
+            return .8;
+        case 'RE':
+            return .2;
+        default:
+            return 0; // Return 0 or handle other cases as needed
+    }
+}
+
 // Function to process CSV and render Highcharts chart
 function processAndRenderChart(csv) {
     const rows = csvToArray(csv);
@@ -160,7 +180,8 @@ function processAndRenderChart(csv) {
 
         // Filter out empty values and create data array for the series
         const data = playerData.filter(value => value !== '').map((value, index) => ({
-            y: 1, // Set value to 1 as per your requirement
+            //y: 1, // Set value to 1 as per your requirement
+            y: mapToNumericPoints(value), // Map text value to numeric point
             name: headerRow[index + 1] // Use only the column header
         }));
 
