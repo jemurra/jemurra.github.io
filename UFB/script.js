@@ -140,7 +140,7 @@ document.getElementById('popupOverlay').style.display = 'flex';
 
 // Highcharts function
 function createHighchart(data) {
-            Highcharts.chart('chartContainer', {
+            Highcharts.chart('chart-container', {
                 chart: {
                     type: 'column' // Adjust chart type as needed (line, bar, etc.)
                 },
