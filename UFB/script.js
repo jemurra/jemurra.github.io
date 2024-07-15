@@ -1,16 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Highcharts Column Chart from CSV Data</title>
-  <!-- Include Highcharts library -->
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-</head>
-<body>
-
-<div id="chartContainer" style="height: 400px; width: 100%;"></div>
-
-<script>
   let csvData = []; // Array to store parsed CSV data
   let headerRow = []; // Array to store header row
   let currentSortColumn = ''; // Variable to keep track of current sort column
