@@ -198,7 +198,7 @@ function processAndRenderChart(csv) {
 function createHighchart(seriesData) {
     Highcharts.chart('chartContainer', {
         chart: {
-            type: 'bar' // Use 'line' type for multiple line series
+            type: 'line' // Use 'line' type for multiple line series
         },
         title: {
             text: 'At Bats By Brewer :)' // Chart title
