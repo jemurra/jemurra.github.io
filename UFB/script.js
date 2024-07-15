@@ -12,30 +12,32 @@ function checkInput() {
     if (inputText === correctText) {
         // Close the popup
         document.getElementById('popupOverlay').style.display = 'none';
-        // Load CSV data
-        loadCSV();
+        // Load CSV data via fetch
+        loadCSVData();
     } else {
         // Display error message
         document.getElementById('errorMessage').textContent = 'Incorrect text. Please try again.';
     }
 }
 
-// Function to load CSV data
-function loadCSV() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = '.csv';
-    input.addEventListener('change', function() {
-        const file = this.files[0];
-        const reader = new FileReader();
-        reader.onload = function(event) {
-            processCSV(event.target.result);
-        };
-        reader.readAsText(file);
-    });
+// Function to load CSV data via fetch
+function loadCSVData() {
+    const csvUrl = 'https://github.com/jemurra/jemurra.github.io/edit/master/UFB/data.csv'; // Replace with your CSV file URL or endpoint
 
-    // Trigger file input dialog
-    input.click();
+    fetch(csvUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(csv => {
+            processCSV(csv);
+        })
+        .catch(error => {
+            console.error('Error fetching CSV:', error);
+            // Handle error (e.g., display error message)
+        });
 }
 
 // Function to process CSV data
