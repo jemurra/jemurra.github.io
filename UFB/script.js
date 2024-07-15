@@ -59,7 +59,14 @@ function renderTable(header, data) {
     header.forEach((cell, index) => {
         let th = document.createElement('th');
         th.textContent = cell;
+        th.classList.add('sortable-header'); // Add class for sortable headers
         th.setAttribute('data-column', index); // Add data attribute for sorting
+
+        // Add sort indicator
+        if (index === parseInt(currentSortColumn)) {
+            th.classList.add(sortDirection);
+        }
+
         headerRow.appendChild(th);
     });
 
@@ -96,6 +103,14 @@ function handleColumnHeaderClick(event) {
             currentSortColumn = columnIndex.toString();
             sortDirection = 'asc';
         }
+
+        // Remove sort indicators from all headers
+        document.querySelectorAll('.sortable-header').forEach(header => {
+            header.classList.remove('asc', 'desc');
+        });
+
+        // Add sort indicator to clicked header
+        event.target.classList.add(sortDirection);
 
         // Perform sorting
         csvData.sort((a, b) => {
