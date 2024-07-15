@@ -161,7 +161,7 @@ function processAndRenderChart(csv) {
         // Filter out empty values and create data array for the series
         const data = playerData.filter(value => value !== '').map((value, index) => ({
             y: 1, // Set value to 1 as per your requirement
-            name: headerRow[index + 1] + ': ' + value // Combine column header and value
+            name: headerRow[index + 1] // Use only the column header
         }));
 
         // Add the series for this player to the series array
@@ -188,7 +188,7 @@ function createHighchart(seriesData) {
             title: {
                 text: 'At Bat' // X-axis title
             },
-            categories: seriesData[0].data.map(point => point.name) // Categories based on data points
+            categories: seriesData.length > 0 ? seriesData[0].data.map(point => point.name) : [] // Categories based on data points
         },
         yAxis: {
             title: {
