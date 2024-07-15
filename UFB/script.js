@@ -35,7 +35,6 @@ function loadCSVData() {
         })
         .then(csv => {
             processCSV(csv);
-            processAndRenderChart(csv); // Process and render Highcharts chart with initial data
         })
         .catch(error => {
             console.error('Error fetching CSV:', error);
