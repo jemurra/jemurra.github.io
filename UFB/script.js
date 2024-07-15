@@ -22,7 +22,7 @@ function checkInput() {
 
 // Function to load CSV data via fetch
 function loadCSVData() {
-    const csvUrl = 'https://github.com/jemurra/jemurra.github.io/UFB/data.csv'; // Replace with your CSV file URL or endpoint
+    const csvUrl = './data.csv'; // Replace with your CSV file URL or endpoint
 
     fetch(csvUrl)
         .then(response => {
