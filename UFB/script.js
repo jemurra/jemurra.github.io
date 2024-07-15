@@ -109,7 +109,3 @@ function mapToNumericPoints(value) {
 
   // Load CSV data when the page loads
   loadCSVData();
-</script>
-
-</body>
-</html>
