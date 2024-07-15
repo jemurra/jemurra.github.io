@@ -138,8 +138,10 @@ function handleColumnHeaderClick(columnIndex) {
 
 // Highchart Stuff
 //test data
-const testData = 'PLAYER,AB_1,AB_2,AB_3,AB_4,AB_5,AB_6,AB_7,AB_8,AB_9,AB_10,AB_11,AB_12,AB_13,AB_14,AB_15,AB_16,AB_17,AB_18,AB_19,AB_20,AB_21
-Chuck,RE,2B,FO,FO,FO,2B,1B,2B,RE,1B,2B,1B,1B,GO,1B,,,,,,';
+const testData = `
+PLAYER,AB_1,AB_2,AB_3,AB_4,AB_5,AB_6,AB_7,AB_8,AB_9,AB_10,AB_11,AB_12,AB_13,AB_14,AB_15,AB_16,AB_17,AB_18,AB_19,AB_20,AB_21
+Chuck,RE,2B,FO,FO,FO,2B,1B,2B,RE,1B,2B,1B,1B,GO,1B,,,,,,
+`;
 
 // Split CSV into rows
 const rows = testData.trim().split('\n');
