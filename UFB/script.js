@@ -157,7 +157,8 @@ function mapToNumericPoints(value) {
     }
 }
 
-const chartData = {
+// Highcharts chart
+  const chartData = {
     categories: ['Apples', 'Bananas', 'Grapes', 'Oranges'],
     data: [5, 3, 7, 2]
   };
@@ -171,18 +172,17 @@ const chartData = {
       text: 'Fruit Consumption'
     },
     xAxis: {
-      categories: chartData.categories, // Categories (x-axis labels)
       title: {
-        text: 'Fruit' // X-axis title
-      }
-    },
-    yAxis: {
-      min: 0,
-      title: {
-        text: 'Quantity' // Y-axis title
+        text: 'Quantity' // X-axis title
       },
       labels: {
         overflow: 'justify'
+      }
+    },
+    yAxis: {
+      categories: chartData.categories, // Categories (y-axis labels)
+      title: {
+        text: 'Fruit' // Y-axis title
       }
     },
     plotOptions: {
