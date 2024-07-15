@@ -229,7 +229,7 @@ function createHighchart(seriesData) {
     });
 }
 
-/ Function to filter Highcharts data based on clicked row index
+// Function to filter Highcharts data based on clicked row index
 function filterHighchartsData(rowIndex) {
     // Get the row data from csvData array
     const rowData = csvData[rowIndex];
