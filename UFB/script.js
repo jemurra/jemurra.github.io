@@ -136,6 +136,30 @@ function handleColumnHeaderClick(columnIndex) {
     }
 }
 
+// Highchart Stuff
+//test data
+const csvData = `
+PLAYER,AB_1,AB_2,AB_3,AB_4,AB_5,AB_6,AB_7,AB_8,AB_9,AB_10,AB_11,AB_12,AB_13,AB_14,AB_15,AB_16,AB_17,AB_18,AB_19,AB_20,AB_21
+Chuck,RE,2B,FO,FO,FO,2B,1B,2B,RE,1B,2B,1B,1B,GO,1B,,,,,,
+`;
+
+// Split CSV into rows
+const rows = csvData.trim().split('\n');
+
+// Extract headers and data
+const headers = rows[0].split(',');
+const values = rows[1].split(',');
+
+// Remove first element from values (PLAYER name)
+values.shift();
+
+// Prepare series data for Highcharts
+const seriesData = headers.slice(1).map((header, index) => ({
+    name: header,
+    y: mapToNumericPoints(values[index]),
+}));
+
+
 // Function to map text values to numeric points
 function mapToNumericPoints(value) {
     switch (value) {
@@ -148,10 +172,31 @@ function mapToNumericPoints(value) {
         case 'HR':
             return 4;
         case 'BB':
-            return .8;
+            return 0.8;
         case 'RE':
-            return .2;
+            return 0.2;
         default:
             return 0; // Return 0 or handle other cases as needed
     }
 }
+
+Highcharts.chart('chartContainer', {
+    chart: {
+        type: 'column'
+    },
+    title: {
+        text: 'Player AB Results'
+    },
+    xAxis: {
+        categories: headers.slice(1) // Use headers for x-axis categories
+    },
+    yAxis: {
+        title: {
+            text: 'Numeric Points'
+        }
+    },
+    series: [{
+        name: 'Player',
+        data: seriesData
+    }]
+});
