@@ -80,8 +80,9 @@ function renderTable(header, data) {
         td.textContent = cell;
     });
 
-    // Create table body and rows from data
-    let tbody = table.createTBody();
+    // Create table body from data
+    let tbody = table.createTBody(); // Declare tbody only once
+
     data.forEach(rowData => {
         let row = tbody.insertRow();
         rowData.forEach(cell => {
@@ -90,26 +91,12 @@ function renderTable(header, data) {
         });
     });
 
-    // Add event listener to table rows for filtering Highcharts data
-    const tableRows = tbody.querySelectorAll('tr');
-    tableRows.forEach((row, index) => {
-        row.addEventListener('click', () => {
-            filterHighchartsData(index);
-        });
-    });
-    // Create table body and rows from data
-    let tbody = table.createTBody();
-    data.forEach((rowData, rowIndex) => {
-        let row = tbody.insertRow();
-        rowData.forEach(cell => {
-            let td = row.insertCell();
-            td.textContent = cell;
-        });
-
-        // Add click event listener to each row
+    // Add click event listener to each row for filtering Highcharts data
+    tbody.querySelectorAll('tr').forEach((row, rowIndex) => {
         row.addEventListener('click', () => {
             filterHighchartsData(rowIndex); // Filter Highcharts based on clicked row index
         });
+    });
 }
 
 // Function to handle column header click for sorting
