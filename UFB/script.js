@@ -182,17 +182,17 @@ function createHighchart(seriesData) {
             type: 'line' // Use 'line' type for multiple line series
         },
         title: {
-            text: 'Brewer :)' // Chart title
+            text: 'At Bats By Brewer :)' // Chart title
         },
         xAxis: {
             title: {
-                text: 'Result' // X-axis title
+                text: 'At Bat' // X-axis title
             },
             categories: seriesData[0].data.map(point => point.name) // Categories based on data points
         },
         yAxis: {
             title: {
-                text: 'Value' // Y-axis title
+                text: 'Result' // Y-axis title
             }
         },
         series: seriesData // Series data prepared earlier
