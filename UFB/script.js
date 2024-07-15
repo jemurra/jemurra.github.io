@@ -137,3 +137,61 @@ document.addEventListener('click', function(event) {
 
 // Show popup on page load
 document.getElementById('popupOverlay').style.display = 'flex';
+
+// Highcharts function
+function createHighchart(data) {
+            Highcharts.chart('chartContainer', {
+                chart: {
+                    type: 'column' // Adjust chart type as needed (line, bar, etc.)
+                },
+                title: {
+                    text: 'CSV Data Chart'
+                },
+                xAxis: {
+                    categories: data.map(row => row[0]), // Assuming first column as X-axis
+                    title: {
+                        text: 'X Axis Title'
+                    }
+                },
+                yAxis: {
+                    title: {
+                        text: 'Y Axis Title'
+                    }
+                },
+                series: [{
+                    name: 'Series Name',
+                    data: data.map(row => parseInt(row[1])) // Assuming second column as Y-axis
+                }]
+            });
+        }
+
+        // Function to convert CSV string to array
+        function csvToArray(csv) {
+            return csv.trim().split('\n').map(row => row.split(','));
+        }
+
+        // Function to process CSV and render Highcharts chart
+        function processAndRenderChart(csv) {
+            const rows = csvToArray(csv);
+            // Assuming first row is header, adjust slice if header is not included in data
+            const data = rows.slice(1);
+            createHighchart(data);
+        }
+
+        // Example CSV processing and chart rendering on load
+        const csvUrl = './rawdata.csv'; // My highcharts data
+
+        fetch(csvUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text();
+            })
+            .then(csv => {
+                processAndRenderChart(csv);
+            })
+            .catch(error => {
+                console.error('Error fetching CSV:', error);
+                // Handle error (e.g., display error message)
+            });
