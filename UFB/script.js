@@ -137,12 +137,6 @@ function handleColumnHeaderClick(columnIndex) {
     }
 }
 
-// HIGHCHARTS FUNCTIONS BELOW
-// Function to convert CSV string to array
-function csvToArray(csv) {
-    return csv.trim().split('\n').map(row => row.split(','));
-}
-
 // Function to map text values to numeric points
 function mapToNumericPoints(value) {
     switch (value) {
@@ -163,76 +157,43 @@ function mapToNumericPoints(value) {
     }
 }
 
-// Function to process CSV and render Highcharts chart
-function processAndRenderChart(csv) {
-    const rows = csvToArray(csv);
-    const headerRow = rows[0]; // Extract header row
-    const dataRows = rows.slice(1); // Extract data rows
+const chartData = {
+    categories: ['Apples', 'Bananas', 'Grapes', 'Oranges'],
+    data: [5, 3, 7, 2]
+  };
 
-    // Initialize series array for Highcharts
-    const series = [];
-
-    // Iterate through each row (player)
-    dataRows.forEach(row => {
-        const playerName = row[0]; // First column is player name
-        const playerData = row.slice(1); // Remaining columns are data points
-
-        // Filter out empty values and create data array for the series
-        const data = playerData.filter(value => value !== '').map((value, index) => ({
-            y: mapToNumericPoints(value), // Map text value to numeric point
-            name: headerRow[index + 1] // Use only the column header
-        }));
-
-        // Add the series for this player to the series array
-        series.push({
-            name: playerName, // Player name as series name
-            data: data // Data array for the series
-        });
-    });
-
-    // Call function to create Highcharts chart with the prepared series data
-    createHighchart(series);
-}
-
-// Function to create Highcharts chart
-function createHighchart(seriesData) {
-    Highcharts.chart('chartContainer', {
-        chart: {
-            type: 'line' // Use 'line' type for multiple line series
-        },
-        title: {
-            text: 'At Bats By Brewer :)' // Chart title
-        },
-        xAxis: {
-            title: {
-                text: 'At Bat' // X-axis title
-            },
-            categories: seriesData.length > 0 ? seriesData[0].data.map(point => point.name) : [] // Initial categories based on data points
-        },
-        yAxis: {
-            title: {
-                text: 'Result' // Y-axis title
-            }
-        },
-        series: seriesData // Series data prepared earlier
-    });
-}
-
-// Example CSV processing and chart rendering on load
-const csvUrl = './rawdata.csv'; // Replace with your CSV file URL or endpoint
-
-fetch(csvUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+  // Create the chart
+  Highcharts.chart('chartContainer', {
+    chart: {
+      type: 'bar' // Bar chart type
+    },
+    title: {
+      text: 'Fruit Consumption'
+    },
+    xAxis: {
+      categories: chartData.categories, // Categories (x-axis labels)
+      title: {
+        text: 'Fruit' // X-axis title
+      }
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Quantity' // Y-axis title
+      },
+      labels: {
+        overflow: 'justify'
+      }
+    },
+    plotOptions: {
+      bar: {
+        dataLabels: {
+          enabled: true // Show data labels on bars
         }
-        return response.text();
-    })
-    .then(csv => {
-        processCSV(csv);
-        processAndRenderChart(csv); // Initial rendering of Highcharts chart
-    })
-    .catch(error => {
-        console.error('Error fetching CSV:', error);
-        // Handle error (e.g., display error message)
-    });
+      }
+    },
+    series: [{
+      name: 'Quantity',
+      data: chartData.data // Data for the bars
+    }]
+  });
