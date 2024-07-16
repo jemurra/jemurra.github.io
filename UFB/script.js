@@ -140,7 +140,7 @@ function handleColumnHeaderClick(columnIndex) {
 //test data
 const testData = `
 PLAYER,AB_1,AB_2,AB_3,AB_4,AB_5,AB_6,AB_7,AB_8,AB_9,AB_10,AB_11,AB_12,AB_13,AB_14,AB_15,AB_16,AB_17,AB_18,AB_19,AB_20,AB_21
-Chuck,RE,2B,FO,FO,FO,2B,1B,2B,RE,1B,2B,1B,1B,GO,1B,,,,,,
+Allison,FO,GO,FO,RE,PO,GO,1B,GO,1B,RE,GO,FO,FC,1B,1B,1B,FO,1B,1B,1B,1B
 `;
 
 // Split CSV into rows
@@ -157,6 +157,7 @@ values.shift();
 const seriesData = headers.slice(1).map((header, index) => ({
     name: header,
     y: mapToNumericPoints(values[index]),
+    label: values[index] 
 }));
 
 
@@ -185,18 +186,24 @@ Highcharts.chart('chartContainer', {
         type: 'column'
     },
     title: {
-        text: 'Player AB Results'
+        text: 'Allison Hits'
     },
     xAxis: {
         categories: headers.slice(1) // Use headers for x-axis categories
     },
     yAxis: {
         title: {
-            text: 'Numeric Points'
+            text: 'Result'
         }
     },
     series: [{
         name: 'Player',
-        data: seriesData
+        data: seriesData,
+        dataLabels: {
+            enabled: true,
+            formatter: function() {
+                return this.point.label; // Display label text on the column
+            }
+        }
     }]
 });
