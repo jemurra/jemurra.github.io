@@ -9,7 +9,7 @@ Highcharts.setOptions({ credits: false });
 // Function to check input text
 function checkInput() {
     const inputText = document.getElementById('inputText').value.trim();
-    const correctText = 'UFB4all'; // Change this to your specific text
+    const correctText = 'Andy4prez'; // Change this to your specific text
 
     if (inputText === correctText) {
         // Close the popup
